@@ -1,6 +1,5 @@
 import './theme.css'
 
-import './App.css'
 import './IconButton.css'
 import './Table.css'
 import './TableHead.css'
