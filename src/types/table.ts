@@ -6,7 +6,6 @@ export type TableComponentProps = {
   className?: string
   onRowClick?: (rowData: object, evt: MouseEvent<HTMLTableRowElement, globalThis.MouseEvent>) => void
   loading?: boolean
-  hasPagination?: true
   page?: number
   handleSetPage?: (page: number) => void
   firstPage?: number
