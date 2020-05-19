@@ -1,0 +1,23 @@
+.CarbonaraTable-IconButton {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.CarbonaraTable-IconButton:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -webkit-opacity: 0.5;
+  filter: alpha(opacity=0.5);
+}

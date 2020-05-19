@@ -1,0 +1,28 @@
+{
+  "name": "carbonara-table",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "rm -Rf build && tsc && gulp css && gulp assets"
+  },
+  "author": "",
+  "license": "ISC",
+  "main": "build/index.js",
+  "module": "build/index.js",
+  "jsnext:main": "build/index.js",
+  "files": [
+    "build",
+    "package.json"
+  ],
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "gulp": "^4.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.9.2"
+  }
+}

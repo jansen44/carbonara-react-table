@@ -1,0 +1,41 @@
+.CarbonaraTable-OuterContainer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.CarbonaraTable-Container {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.CarbonaraTable-Container table {
+	border-collapse: collapse;
+}
+
+.CarbonaraTableHeader-Wrapper {
+	position: relative;
+}
+
+.CarbonaraTable-Wrapper {
+	overflow: auto;
+}
+
+.CarbonaraTable-Body td {
+	text-align: left;
+}
+
+.CarbonaraTable-Head th,
+.CarbonaraTable-Body td {
+	min-width: 200px;
+	max-width: 200px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	word-wrap: break-word;
+}

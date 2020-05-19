@@ -1,0 +1,29 @@
+.CarbonaraTable-Pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+.CarbonaraTable-Pagination-IconButtonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0 10px;
+}
+
+.CarbonaraTable-Pagination-IconButtonWrapper > .CarbonaraTable-IconButton {
+  height: 29px;
+  background: var(--carbonara--color-light-gray);
+  border-radius: 7px;
+  
+  -webkit-transition: .35s background;
+  transition: .35s background;
+}
+
+.CarbonaraTable-Pagination-IconButtonWrapper > .CarbonaraTable-IconButton:hover {
+  background: var(--carbonara--color-medium-light-gray);
+}
+
+.CarbonaraTable-Pagination > .CarbonaraTable-IconButton {
+  margin: 0 15px;
+}

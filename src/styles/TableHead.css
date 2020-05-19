@@ -1,0 +1,11 @@
+.CarbonaraTable-Head {
+  text-transform: uppercase;
+  color: var(--carbonara--color-light-text);
+  font-weight: 400;
+}
+
+.CarbonaraTable-Head th {
+  height: 40px;
+  text-align: left;
+  border-bottom: 1px solid var(--carbonara--color-light-gray);
+}

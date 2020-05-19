@@ -1,0 +1,9 @@
+.CarbonaraTable-ClickableRow {
+  cursor: pointer;
+  -webkit-transition: .25s background ease-in-out;
+  transition: .25s background ease-in-out;
+}
+
+.CarbonaraTable-ClickableRow:hover {
+  background: var(--carbonara--color-light-gray);
+}

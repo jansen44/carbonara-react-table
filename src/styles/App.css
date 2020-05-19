@@ -1,0 +1,45 @@
+body, html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  position: relative;
+  padding-top: 50px;
+  padding-left: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 94vw;
+  height: 93vh;
+}
+
+.App > .LittleTable {
+  width: 45vw;
+  height: 42vh;
+  margin: 0 0 20px;
+}
+
+.App > div.ButtonContainer {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 200px;
+  height: 30px;
+  display: flex;
+}
