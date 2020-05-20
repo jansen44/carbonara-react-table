@@ -1,0 +1,16 @@
+.CarbonaraTable-CardItem {
+  padding: 15px;
+}
+
+.CarbonaraTable-CardItem-Name {
+  text-transform: uppercase;
+  color: var(--carbonara--color-light-text);
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.CarbonaraTable-CardItem-Value {
+  color: var(--carbonara--color-text);
+  word-break: break-all;
+}

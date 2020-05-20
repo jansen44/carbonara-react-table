@@ -10,9 +10,10 @@ export const TablePagination = ({
   isNextDisabled,
   page,
   firstPage,
-  lastPage
+  lastPage,
+  className
 }: TablePaginationProps) => (
-    <div className='CarbonaraTable-Pagination'>
+    <div className={`CarbonaraTable-Pagination ${className ? className : ''}`}>
       <div className='CarbonaraTable-Pagination-IconButtonWrapper'>
         <IconButton
           icon='leftArrow'

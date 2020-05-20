@@ -1,7 +1,7 @@
 .CarbonaraTable-Pagination {
   display: flex;
   justify-content: flex-end;
-  margin: 10px 0;
+  align-items: center;
 }
 .CarbonaraTable-Pagination-IconButtonWrapper {
   display: flex;
@@ -9,6 +9,15 @@
   align-items: center;
   height: 100%;
   margin: 0 10px;
+}
+
+.CarbonaraTable-UpperPagination {
+  margin-bottom: 35px;
+}
+
+.CarbonaraTable-BottomPagination {
+  margin-top: 35px;
+  margin-bottom: 20px;
 }
 
 .CarbonaraTable-Pagination-IconButtonWrapper > .CarbonaraTable-IconButton {

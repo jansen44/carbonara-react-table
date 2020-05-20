@@ -1,20 +1,23 @@
-import { FunctionComponent, MouseEvent } from 'react'
+import { FunctionComponent } from 'react'
+import { OnCardRowClickType } from './misc'
 
 export type TableComponentProps = {
   columns: TableColumn[]
   data: object[]
   className?: string
-  onRowClick?: (rowData: object, evt: MouseEvent<HTMLTableRowElement, globalThis.MouseEvent>) => void
+  onRowClick?: OnCardRowClickType
   loading?: boolean
   page?: number
   handleSetPage?: (page: number) => void
   firstPage?: number
   lastPage?: number
+  showCards?: boolean
 }
 
 export type TableComponentState = {
   tableRows: TableRow[]
   oldData: object[]
+  tableDimensions: { width: number, height: number }
 }
 
 export interface TableColumn {

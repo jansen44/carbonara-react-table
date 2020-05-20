@@ -7,25 +7,36 @@ import {
   TableData,
   TableColumn
 } from '../types'
-import { getNestedValue } from '../util'
+import { getNestedValue, Debounce } from '../util'
 
+import { CardList } from './CardList'
 import { TableBody } from './TableBody'
 import { TableHead } from './TableHead'
 import { TablePagination } from './TablePagination'
 
 export class Table extends Component<TableComponentProps, TableComponentState> {
+  private debounce: any = new Debounce()
+  private tableHeaderRef: any = null
+  private outerContainerRef: any = null
+
   public static defaultProps = {
     firstPage: 0
   }
 
-  private tableHeaderRef: any = null
-
   constructor(props: TableComponentProps) {
     super(props)
+
     this.state = {
       tableRows: [],
-      oldData: []
+      oldData: [],
+      tableDimensions: {
+        width: 1000,
+        height: 1000
+      }
     }
+
+    this.debouncedHandleSizeChange = this.debouncedHandleSizeChange.bind(this)
+    this.handleTableResize = this.handleTableResize.bind(this)
   }
 
   componentDidMount() {
@@ -35,6 +46,10 @@ export class Table extends Component<TableComponentProps, TableComponentState> {
       tableRows: this.getTableRows(columns, data),
       oldData: data
     })
+
+    this.handleTableResize()
+
+    window.addEventListener('resize', () => this.debouncedHandleSizeChange(700))
   }
 
   componentDidUpdate() {
@@ -47,6 +62,25 @@ export class Table extends Component<TableComponentProps, TableComponentState> {
         oldData: data
       })
     }
+  }
+
+  debouncedHandleSizeChange = (wait: number) => {
+    this.debounce.debounced(() => {
+      if (!!this.outerContainerRef) {
+        this.handleTableResize()
+      }
+    }, wait)
+  }
+
+  handleTableResize = () => {
+    const outerTableRect = this.outerContainerRef.getBoundingClientRect()
+
+    this.setState({
+      tableDimensions: {
+        width: outerTableRect.width,
+        height: outerTableRect.height
+      }
+    })
   }
 
   getTableRows(columns: TableColumn[], data: object[]) {
@@ -76,12 +110,16 @@ export class Table extends Component<TableComponentProps, TableComponentState> {
       page,
       handleSetPage,
       firstPage,
-      lastPage
+      lastPage,
+      showCards
     } = this.props
-    const { tableRows } = this.state
+    const { tableRows, tableDimensions } = this.state
 
     return (
-      <div className={`CarbonaraTable-OuterContainer ${className || ''}`}>
+      <div
+        ref={el => this.outerContainerRef = el}
+        className={`CarbonaraTable-OuterContainer ${className || ''}`}
+      >
         {
           (!!page || page === 0) && !!handleSetPage && (
             <TablePagination
@@ -91,18 +129,26 @@ export class Table extends Component<TableComponentProps, TableComponentState> {
               page={page}
               firstPage={firstPage}
               lastPage={lastPage}
+              className='CarbonaraTable-UpperPagination'
             />
           )
         }
-        <div className='CarbonaraTable-Container'>
-          <div ref={el => this.tableHeaderRef = el} className='CarbonaraTableHeader-Wrapper'>
-            <TableHead columns={columns} />
-          </div>
 
-          <div onScroll={this.handleTableScroll} className='CarbonaraTable-Wrapper'>
-            <TableBody rows={tableRows} onRowClick={onRowClick} />
-          </div>
-        </div>
+        {!!showCards && (tableDimensions.width <= 700)
+          ? <CardList cards={tableRows} onCardClick={onRowClick} />
+          : (
+            <div className='CarbonaraTable-Container'>
+              <div ref={el => this.tableHeaderRef = el} className='CarbonaraTableHeader-Wrapper'>
+                <TableHead columns={columns} />
+              </div>
+
+              <div onScroll={this.handleTableScroll} className='CarbonaraTable-Wrapper'>
+                <TableBody rows={tableRows} onRowClick={onRowClick} />
+              </div>
+            </div>
+          )
+        }
+
         {
           (!!page || page === 0) && !!handleSetPage && (
             <TablePagination
@@ -112,6 +158,7 @@ export class Table extends Component<TableComponentProps, TableComponentState> {
               page={page}
               firstPage={firstPage}
               lastPage={lastPage}
+              className='CarbonaraTable-BottomPagination'
             />
           )
         }

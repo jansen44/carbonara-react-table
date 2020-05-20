@@ -4,5 +4,6 @@ export type TablePaginationProps = {
   isNextDisabled?: boolean
   page: number
   firstPage?: number
-  lastPage?: number
+  lastPage?: number,
+  className: string
 }
