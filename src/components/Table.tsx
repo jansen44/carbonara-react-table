@@ -20,7 +20,8 @@ export class Table extends Component<TableComponentProps, TableComponentState> {
   private outerContainerRef: any = null
 
   public static defaultProps = {
-    firstPage: 0
+    firstPage: 0,
+    maxShowCardsWidth: 700
   }
 
   constructor(props: TableComponentProps) {
@@ -111,7 +112,8 @@ export class Table extends Component<TableComponentProps, TableComponentState> {
       handleSetPage,
       firstPage,
       lastPage,
-      showCards
+      showCards,
+      maxShowCardsWidth
     } = this.props
     const { tableRows, tableDimensions } = this.state
 
@@ -134,7 +136,7 @@ export class Table extends Component<TableComponentProps, TableComponentState> {
           )
         }
 
-        {!!showCards && (tableDimensions.width <= 700)
+        {!!showCards && (tableDimensions.width <= maxShowCardsWidth)
           ? <CardList cards={tableRows} onCardClick={onRowClick} />
           : (
             <div className='CarbonaraTable-Container'>

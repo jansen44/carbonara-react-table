@@ -12,6 +12,7 @@ export type TableComponentProps = {
   firstPage?: number
   lastPage?: number
   showCards?: boolean
+  maxShowCardsWidth: number
 }
 
 export type TableComponentState = {
