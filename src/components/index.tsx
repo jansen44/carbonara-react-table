@@ -12,6 +12,7 @@ import { getNestedValue, Debounce } from '../util'
 
 import { CarbonaraCardList } from './CarbonaraCardList'
 import { CarbonaraDataGrid } from './CarbonaraDataGrid'
+import { CarbonaraDataTable } from './CarbonaraTable'
 import { CarbonaraTablePagination } from './CarbonaraPagination'
 
 export class CarbonaraTable extends Component<CarbonaraComponentProps, CarbonaraComponentState> {
@@ -110,14 +111,22 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
   }
 
   renderComponent(): JSX.Element {
-    const { columns, onRowClick, showCards, maxShowCardsWidth } = this.props
+    const { columns, onRowClick, showCards, maxShowCardsWidth, datagrid } = this.props
     const { tableRows, tableDimensions } = this.state
 
     if (!!showCards && (tableDimensions.width <= maxShowCardsWidth)) {
       return <CarbonaraCardList cards={tableRows} onCardClick={onRowClick} />
     }
 
-    return <CarbonaraDataGrid
+    if (!!datagrid) {
+      return <CarbonaraDataGrid
+        columns={columns}
+        rows={tableRows}
+        onRowClick={onRowClick}
+      />
+    }
+
+    return <CarbonaraDataTable
       columns={columns}
       rows={tableRows}
       onRowClick={onRowClick}

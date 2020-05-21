@@ -8,7 +8,7 @@ export const CarbonaraCardList = ({ cards, onCardClick }: CarbonaraCardListProps
       <CarbonaraCard
         card={card}
         onCardClick={onCardClick}
-        key={`tablerow_${card.length}_${index}`}
+        key={`carbonaracard__${card.length}_${index}`}
       />
     ))}
   </div>

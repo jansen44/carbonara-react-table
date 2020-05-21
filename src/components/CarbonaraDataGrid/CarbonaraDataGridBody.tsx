@@ -8,7 +8,7 @@ export const CarbonaraDataGridBody = ({ rows, onRowClick }: CarbonaraDataGridBod
       {rows.map((row, index) => (
         <CarbonaraDataGridRow
           onRowClick={onRowClick}
-          key={`tablerow_${row.length}_${index}`}
+          key={`carbonaradatagrid__tablerow_${row.length}_${index}`}
           row={row}
         />
       ))}

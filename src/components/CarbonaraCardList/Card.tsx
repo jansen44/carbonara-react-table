@@ -8,7 +8,7 @@ export const CarbonaraCard = ({ card, onCardClick }: CarbonaraCardProps) => (
     className={`CarbonaraTable-Card ${onCardClick ? 'CarbonaraTable-ClickableCard' : ''}`}
   >
     {card.map((data, index) => (
-      <CarbonaraCardItem key={`${data.value}_body_${index}`} data={data} />
+      <CarbonaraCardItem key={`carbonaracarditem_${data.value}_body_${index}`} data={data} />
     ))}
   </div>
 )

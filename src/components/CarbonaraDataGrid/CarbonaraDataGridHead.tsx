@@ -8,7 +8,7 @@ export const CarbonaraDataGridHead = ({ columns }: CarbonaraDataGridHeadProps) =
       <tr>
         {columns.map((column, index) => (
           <CarbonaraDataGridHeadData
-            key={`${column.label}__${column.field}_header_${index}`}
+            key={`carbonaradatagrid_${column.label}__${column.field}_header_${index}`}
             column={column}
           />
         ))}

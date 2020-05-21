@@ -16,7 +16,7 @@ export const CarbonaraPaginationPage = ({ page, lastPage, firstPage, handleSetPa
       <div className='CarbonaraTable-PaginationPages'>
         {getNumberRange(firstPage, lastPage).map((_page, index) => (
           <button
-            key={`carbonara_table_${_page}${page}${index}${handleSetPage}`}
+            key={`carbonarapaginationbutton_table_${_page}${page}${index}${handleSetPage}`}
             onClick={() => { page !== _page && handleSetPage(_page) }}
             className={page === _page ? 'CarbonaraTable-PaginationPage--Selected' : ''}
           >
@@ -44,7 +44,7 @@ export const CarbonaraPaginationPage = ({ page, lastPage, firstPage, handleSetPa
       <div className='CarbonaraTable-PaginationPages'>
         {currentPageSplit.map((_page, index) => (
           <button
-            key={`carbonara_table_${_page}${page}${index}${handleSetPage}`}
+            key={`carbonarapaginationbutton_table_${_page}${page}${index}${handleSetPage}`}
             onClick={() => { page !== _page && handleSetPage(_page) }}
             className={page === _page ? 'CarbonaraTable-PaginationPage--Selected' : ''}
           >
@@ -72,7 +72,7 @@ export const CarbonaraPaginationPage = ({ page, lastPage, firstPage, handleSetPa
 
         {currentPageSplit.map((_page, index) => (
           <button
-            key={`carbonara_table_${_page}${page}${index}${handleSetPage}`}
+            key={`carbonarapaginationbutton_table_${_page}${page}${index}${handleSetPage}`}
             onClick={() => { page !== _page && handleSetPage(_page) }}
             className={page === _page ? 'CarbonaraTable-PaginationPage--Selected' : ''}
           >
@@ -94,7 +94,7 @@ export const CarbonaraPaginationPage = ({ page, lastPage, firstPage, handleSetPa
 
       {currentPageSplit.map((_page, index) => (
         <button
-          key={`carbonara_table_${_page}${page}${index}${handleSetPage}`}
+          key={`carbonarapaginationbutton_table_${_page}${page}${index}${handleSetPage}`}
           onClick={() => { page !== _page && handleSetPage(_page) }}
           className={page === _page ? 'CarbonaraTable-PaginationPage--Selected' : ''}
         >
