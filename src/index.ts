@@ -1,6 +1,6 @@
 import './styles'
 
-import * as Carbonara from './components/Table'
-import * as CarbonaraTypes from './types'
+import { CarbonaraTable } from './components'
+import * as CarbonaraTableTypes from './types'
 
-export { Carbonara, CarbonaraTypes }
+export { CarbonaraTable, CarbonaraTableTypes }

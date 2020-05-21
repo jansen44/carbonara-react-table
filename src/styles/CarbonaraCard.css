@@ -1,0 +1,29 @@
+.CarbonaraTable-Card {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  display: flex;
+  margin-bottom: 30px;
+  border: 1px solid var(--carbonara-table--color-light-gray-3);
+  padding: 10px 0;
+  border-radius: 10px;
+  flex-wrap: wrap;
+
+  flex: 1;
+}
+
+.CarbonaraTable-ClickableCard {
+  cursor: pointer;
+  -webkit-transition: .15s background ease-in-out;
+  transition: .15s background ease-in-out;
+}
+
+.CarbonaraTable-ClickableCard:hover {
+  background: var(--carbonara-table--color-light-gray-3);
+}

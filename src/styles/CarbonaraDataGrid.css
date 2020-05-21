@@ -1,0 +1,28 @@
+.CarbonaraTable-DataGridContainer {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.CarbonaraTable-DataGridContainer table {
+	border-collapse: collapse;
+}
+
+.CarbonaraTable-DataGridHeaderWrapper {
+	position: relative;
+}
+
+.CarbonaraTable-DataGridBodyWrapper {
+	overflow: auto;
+}
+
+.CarbonaraTable-DataGridHead th,
+.CarbonaraTable-DataGridBody td {
+	min-width: 200px;
+	max-width: 200px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	word-wrap: break-word;
+}

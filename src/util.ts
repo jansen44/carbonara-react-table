@@ -9,6 +9,20 @@ export const getNestedValue = (object: Object, key: string) => {
 	)
 }
 
+export function getNumberRange(begin: number, final: number) {
+  const _final = final + 1
+
+  if (_final <= begin) { return [] }
+
+  const range = _final - begin;
+  let current = begin - 1
+
+  return Array(range).fill(0).map(() => {
+    current++
+    return current
+  })
+}
+
 export class Debounce {
 	private timeout: number | null
 

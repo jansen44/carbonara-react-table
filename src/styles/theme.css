@@ -1,16 +1,16 @@
 :root {
-  --carbonara--color-black: #262626;
-  --carbonara--color-white: #ffffff;
-  --carbonara--color-gray: #b9bdc7;
-  --carbonara--color-light-gray: #f6f8fe;
-  --carbonara--color-light-gray-2: #D2DEED;
-  --carbonara--color-light-gray-3: #eef1f8;
-  --carbonara--color-medium-light-gray: #e3e7f1;
-  --carbonara--color-light-blue-gray: #bfc6d6;
+  --carbonara-table--color-black: #262626;
+  --carbonara-table--color-white: #ffffff;
+  --carbonara-table--color-gray: #b9bdc7;
+  --carbonara-table--color-light-gray: #f6f8fe;
+  --carbonara-table--color-light-gray-2: #D2DEED;
+  --carbonara-table--color-light-gray-3: #eef1f8;
+  --carbonara-table--color-medium-light-gray: #e3e7f1;
+  --carbonara-table--color-light-blue-gray: #bfc6d6;
 
-  --carbonara--color-primary: #525F7F;
+  --carbonara-table--color-primary: #525F7F;
   
-  --carbonara--color-text: #444F6A;
-  --carbonara--color-light-text: #BAC7DC;
+  --carbonara-table--color-text: #444F6A;
+  --carbonara-table--color-light-text: #BAC7DC;
 }
 
