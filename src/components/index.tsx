@@ -95,65 +95,60 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       rowData: datum
     }
   }
+  renderPagination(className: string, page: number, handleSetPage: (page: number) => void): JSX.Element {
+    const { loading, lastPage, firstPage } = this.props
+
+    return <CarbonaraTablePagination
+      handleSetPage={handleSetPage}
+      isNextDisabled={loading || (lastPage === page)}
+      isPrevDisabled={loading || (firstPage === page)}
+      page={page}
+      firstPage={firstPage}
+      lastPage={lastPage}
+      className={className}
+    />
+  }
+
+  renderComponent(): JSX.Element {
+    const { columns, onRowClick, showCards, maxShowCardsWidth } = this.props
+    const { tableRows, tableDimensions } = this.state
+
+    if (!!showCards && (tableDimensions.width <= maxShowCardsWidth)) {
+      return <CarbonaraCardList cards={tableRows} onCardClick={onRowClick} />
+    }
+
+    return <CarbonaraDataGrid
+      columns={columns}
+      rows={tableRows}
+      onRowClick={onRowClick}
+    />
+  }
 
   render() {
-    const {
-      columns,
-      className,
-      onRowClick,
-      loading,
-      page,
-      handleSetPage,
-      firstPage,
-      lastPage,
-      showCards,
-      maxShowCardsWidth
-    } = this.props
-    const { tableRows, tableDimensions } = this.state
+    const { className, page, handleSetPage } = this.props
 
     return (
       <div
         ref={el => this.outerContainerRef = el}
         className={`CarbonaraTable-Container ${className || ''}`}
       >
-        {
-          (!!page || page === 0) && !!handleSetPage && (
-            <CarbonaraTablePagination
-              handleSetPage={handleSetPage}
-              isNextDisabled={loading || (lastPage === page)}
-              isPrevDisabled={loading || (firstPage === page)}
-              page={page}
-              firstPage={firstPage}
-              lastPage={lastPage}
-              className='CarbonaraTable-UpperPagination'
-            />
+        {(!!page || page === 0) && !!handleSetPage && (
+          this.renderPagination(
+            'CarbonaraTable-UpperPagination',
+            page,
+            handleSetPage
           )
-        }
+        )}
 
-        {!!showCards && (tableDimensions.width <= maxShowCardsWidth)
-          ? <CarbonaraCardList cards={tableRows} onCardClick={onRowClick} />
-          : (
-            <CarbonaraDataGrid
-              columns={columns}
-              rows={tableRows}
-              onRowClick={onRowClick}
-            />
-          )
-        }
+        {this.renderComponent()}
 
-        {
-          (!!page || page === 0) && !!handleSetPage && (
-            <CarbonaraTablePagination
-              handleSetPage={handleSetPage}
-              isNextDisabled={loading || (lastPage === page)}
-              isPrevDisabled={loading || (firstPage === page)}
-              page={page}
-              firstPage={firstPage}
-              lastPage={lastPage}
-              className='CarbonaraTable-BottomPagination'
-            />
+        {(!!page || page === 0) && !!handleSetPage && (
+          this.renderPagination(
+            'CarbonaraTable-BottomPagination',
+            page,
+            handleSetPage
           )
-        }
+        )}
       </div>
     )
   }
