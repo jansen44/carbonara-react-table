@@ -17,12 +17,3 @@
 .CarbonaraTable-DataGridBodyWrapper {
 	overflow: auto;
 }
-
-.CarbonaraTable-DataGridHead th,
-.CarbonaraTable-DataGridBody td {
-	min-width: 200px;
-	max-width: 200px;
-	padding: 10px 20px;
-	box-sizing: border-box;
-	word-wrap: break-word;
-}

@@ -12,6 +12,7 @@ import './CarbonaraIconButton.css'
 import './CarbonaraPagination.css'
 import './CarbonaraPaginationPage.css'
 
-import './CarbonaraTBodyRow.css'
+import './CarbonaraTable.css'
 
+import './CarbonaraTBodyRow.css'
 import './CarbonaraTHead.css'

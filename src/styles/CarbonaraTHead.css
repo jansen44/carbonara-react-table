@@ -5,6 +5,11 @@
 }
 
 .CarbonaraTable-THead th {
+  min-width: 200px;
+	max-width: 200px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	word-wrap: break-word;
   height: 40px;
   text-align: left;
   border-bottom: 1px solid var(--carbonara-table--color-light-gray);
