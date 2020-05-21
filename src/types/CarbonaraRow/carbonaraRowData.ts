@@ -1,5 +1,5 @@
 import { CarbonaraData } from '../misc'
 
-export type CarbonaraDataGridDataProps = {
+export type CarbonaraRowDataProps = {
   data: CarbonaraData
 }

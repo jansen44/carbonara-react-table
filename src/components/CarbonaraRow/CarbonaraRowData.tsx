@@ -1,12 +1,13 @@
 import React, { CSSProperties } from 'react'
-import { CarbonaraDataGridDataProps } from '../../types'
+import { CarbonaraRowDataProps } from '../../types'
 
-export const CarbonaraDataGridData = ({ data }: CarbonaraDataGridDataProps) => {
+export const CarbonaraRowData = ({ data }: CarbonaraRowDataProps) => {
   const style: CSSProperties = {}
 
   if (!!data.width) {
     style['minWidth'] = data.width
     style['maxWidth'] = data.width
+    style['width'] = data.width
   }
 
   return (

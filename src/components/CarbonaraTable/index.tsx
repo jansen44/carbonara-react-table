@@ -1,11 +1,11 @@
 import React, { Component, CSSProperties } from 'react'
-
 import { CarbonaraTableProps } from '../../types'
+import { CarbonaraRow } from '../CarbonaraRow'
 
 export class CarbonaraDataTable extends Component<CarbonaraTableProps> {
   render() {
     const { columns, rows, onRowClick } = this.props
-    
+
     console.log(rows)
 
     return (
@@ -30,29 +30,11 @@ export class CarbonaraDataTable extends Component<CarbonaraTableProps> {
           </thead>
           <tbody>
             {rows.map((row, index) => (
-              <tr
-                key={`carbonaratable__tablerow_${row.length}_${index}`}
-                onClick={evt => !!onRowClick && onRowClick(row, evt)}
-                className={onRowClick ? 'CarbonaraTable-DataGridRow--Clickable' : ''}
-              >
-                {row.map((data, index) => {
-                  const style: CSSProperties = {}
-
-                  if (!!data.width) {
-                    style['width'] = data.width
-                  }
-
-                  return (
-                    <td style={style} key={`${data.value}_body_${index}`}>
-                      {data.render
-                        ? <data.render value={data.value} rowData={data.rowData} />
-                        : <div><span>{data.value}</span></div>
-                      }
-                    </td>
-                  )
-                }
-                )}
-              </tr>
+              <CarbonaraRow
+                onRowClick={onRowClick}
+                key={`carbonaradatagrid__tablerow_${row.length}_${index}`}
+                row={row}
+              />
             ))}
           </tbody>
         </table>

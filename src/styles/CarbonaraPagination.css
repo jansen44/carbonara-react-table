@@ -2,6 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  align-self: flex-end;
 }
 .CarbonaraTable-Pagination-IconButtonWrapper {
   display: flex;

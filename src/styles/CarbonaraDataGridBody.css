@@ -1,8 +1,0 @@
-.CarbonaraTable-DataGridBody td {
-  box-sizing: border-box;
-  color: var(--carbonara-table--color-text);
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid var(--carbonara-table--color-light-gray);
-  text-align: left;
-}
