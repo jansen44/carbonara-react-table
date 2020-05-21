@@ -1,5 +1,0 @@
-export * from './carbonaraDataGrid'
-export * from './carbonaraDataGridBody'
-export * from '../CarbonaraRow/carbonaraRowData'
-export * from './carbonaraDataGridHead'
-export * from './carbonaraDataGridHeadData'

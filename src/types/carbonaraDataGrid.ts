@@ -2,7 +2,7 @@ import {
   CarbonaraGroupedData,
   CarbonaraGroupedDataDefinition,
   CarbonaraAction
-} from '../misc'
+} from './misc'
 
 export type CarbonaraDataGridProps = {
   columns: CarbonaraGroupedDataDefinition[]

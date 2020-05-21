@@ -1,5 +1,6 @@
 import { CarbonaraGroupedDataDefinition } from '../misc'
 
-export type CarbonaraDataGridHeadProps = {
+export type CarbonaraTHeadProps = {
   columns: CarbonaraGroupedDataDefinition[],
+  className?: string
 }

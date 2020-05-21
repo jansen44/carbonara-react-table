@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-
-import { CarbonaraDataGridProps } from '../../types'
-
-import { CarbonaraDataGridBody } from './CarbonaraDataGridBody'
-import { CarbonaraDataGridHead } from './CarbonaraDataGridHead'
+import { CarbonaraDataGridProps } from '../types'
+import { CarbonaraTBody } from './CarbonaraTBody'
+import { CarbonaraTHead } from './CarbonaraTHead'
 
 export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
   private dataGridHeaderRef: any = null
@@ -18,11 +16,15 @@ export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
     return (
       <div className='CarbonaraTable-DataGridContainer'>
         <div ref={el => this.dataGridHeaderRef = el} className='CarbonaraTable-DataGridHeaderWrapper'>
-          <CarbonaraDataGridHead columns={columns} />
+          <table>
+            <CarbonaraTHead columns={columns} />
+          </table>
         </div>
 
         <div onScroll={this.handleTableScroll} className='CarbonaraTable-DataGridBodyWrapper'>
-          <CarbonaraDataGridBody rows={rows} onRowClick={onRowClick} />
+          <table className='CarbonaraTable-DataGridBody'>
+            <CarbonaraTBody rows={rows} onRowClick={onRowClick} />
+          </table>
         </div>
       </div>
     )

@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react'
-import { CarbonaraRowDataProps } from '../../types'
+import { CarbonaraTBodyRowDataProps } from '../../types'
 
-export const CarbonaraRowData = ({ data }: CarbonaraRowDataProps) => {
+export const CarbonaraTBodyRowData = ({ data }: CarbonaraTBodyRowDataProps) => {
   const style: CSSProperties = {}
 
   if (!!data.width) {

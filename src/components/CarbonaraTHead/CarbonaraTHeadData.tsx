@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react'
-import { CarbonaraDataGridHeadDataProps } from '../../types'
+import { CarbonaraTHeadDataProps } from '../../types'
 
-export const CarbonaraDataGridHeadData = ({ column }: CarbonaraDataGridHeadDataProps) => {
+export const CarbonaraTHeadData = ({ column }: CarbonaraTHeadDataProps) => {
   const style: CSSProperties = {}
 
   if (!!column.width) {

@@ -1,9 +1,10 @@
 export * from './misc'
 export * from './carbonara'
 export * from './carbonaraIconButton'
+export * from './carbonaraDataGrid'
 
-export * from './CarbonaraCardListTypes'
-export * from './CarbonaraDataGridTypes'
+export * from './CarbonaraCardList'
 export * from './CarbonaraPagination'
-export * from './CarbonaraRow'
 export * from './CarbonaraTable'
+export * from './CarbonaraTBody'
+export * from './CarbonaraTHead'

@@ -1,5 +1,5 @@
 import { CarbonaraData } from '../misc'
 
-export type CarbonaraRowDataProps = {
+export type CarbonaraTBodyRowDataProps = {
   data: CarbonaraData
 }

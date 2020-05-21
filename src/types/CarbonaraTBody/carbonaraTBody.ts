@@ -1,6 +1,7 @@
 import { CarbonaraAction, CarbonaraGroupedData } from '../misc'
 
-export type CarbonaraDataGridBodyProps = {
+export type CarbonaraTBodyProps = {
   rows: CarbonaraGroupedData[],
-  onRowClick?: CarbonaraAction
+  onRowClick?: CarbonaraAction,
+  className?: string
 }
