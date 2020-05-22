@@ -7,7 +7,7 @@ import {
 // ? Main CarbonaraComponent props
 export type CarbonaraComponentProps = {
   columns: CarbonaraGroupedDataDefinition[]
-  data: object[]
+  data: any[]
   className?: string
   onRowClick?: CarbonaraAction
   loading?: boolean
@@ -23,6 +23,6 @@ export type CarbonaraComponentProps = {
 // ? Main CarbonaraComponent state
 export type CarbonaraComponentState = {
   tableRows: CarbonaraGroupedData[]
-  oldData: object[]
+  oldData: any[]
   tableDimensions: { width: number, height: number }
 }

@@ -1,7 +1,7 @@
 import { MouseEvent, FunctionComponent } from 'react'
 
 // ? RowClick, CardClick (ColumnClick on a near future?)
-export type CarbonaraAction = (data: object, evt: CarbonaraActionEvent) => void
+export type CarbonaraAction = (data: any, evt: CarbonaraActionEvent) => void
 
 // ? Possible events for possible elements with a CarbonaraAction attached
 export type CarbonaraActionEvent =
@@ -14,7 +14,7 @@ export type CarbonaraGroupedData = CarbonaraData[]
 // ? Props for the custom render component defined on the table column
 export interface CarbonaraGroupedDataDefinitionRenderProps {
   value: string | number,
-  rowData: object
+  rowData: any
 }
 
 // ? Columns and maybe more things in a near future
@@ -29,5 +29,5 @@ export interface CarbonaraGroupedDataDefinition {
 // ? Cells and Card Items
 export interface CarbonaraData extends CarbonaraGroupedDataDefinition {
   value: string | number,
-  rowData: object
+  rowData: any
 }
