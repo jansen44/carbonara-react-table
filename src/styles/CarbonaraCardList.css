@@ -1,3 +1,23 @@
 .CarbonaraTable-CardList {
   overflow: auto;
 }
+
+.CarbonaraTable-CardList::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	transform: translate(10px);
+}
+
+.CarbonaraTable-CardList::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px var(--carbonara-table--color-gray); 
+	border-radius: 20px;
+}
+
+.CarbonaraTable-CardList::-webkit-scrollbar-thumb {
+	border-radius: 20px;
+	background: var(--carbonara-table--color-primary); 
+}
+
+.CarbonaraTable-CardList::-webkit-scrollbar-thumb:hover {
+	background: var(--carbonara-table--color-secondary); 
+}

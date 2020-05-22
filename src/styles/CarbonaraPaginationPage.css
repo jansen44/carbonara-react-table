@@ -23,6 +23,7 @@
   border: 1px solid var(--carbonara-table--color-light-gray-2);
   border-radius: 7px;
   
+  min-width: 34px;
   width: fit-content;
   height: 29px;
   
