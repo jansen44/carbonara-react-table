@@ -13,7 +13,7 @@ export type CarbonaraGroupedData = CarbonaraData[]
 
 // ? Props for the custom render component defined on the table column
 export interface CarbonaraGroupedDataDefinitionRenderProps {
-  value: string | number,
+  value: any,
   rowData: any
 }
 
@@ -28,6 +28,6 @@ export interface CarbonaraGroupedDataDefinition {
 
 // ? Cells and Card Items
 export interface CarbonaraData extends CarbonaraGroupedDataDefinition {
-  value: string | number,
+  value: any,
   rowData: any
 }
