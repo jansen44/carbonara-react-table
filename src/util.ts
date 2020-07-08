@@ -15,8 +15,8 @@ export function getNumberRange(begin: number, final: number) {
   if (_final <= begin) { return [] }
 
   const range = _final - begin;
-  let current = begin - 1
-
+	let current = begin - 1
+	
   return Array(range).fill(0).map(() => {
     current++
     return current

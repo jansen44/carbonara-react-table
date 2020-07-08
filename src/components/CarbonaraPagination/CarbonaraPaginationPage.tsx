@@ -11,7 +11,7 @@ export const CarbonaraPaginationPage = ({ page, lastPage, firstPage, handleSetPa
     )
   }
 
-  if (lastPage - firstPage < 6) {
+  if (lastPage - firstPage < 7) {
     return (
       <div className='CarbonaraTable-PaginationPages'>
         {getNumberRange(firstPage, lastPage).map((_page, index) => (
@@ -27,22 +27,13 @@ export const CarbonaraPaginationPage = ({ page, lastPage, firstPage, handleSetPa
     )
   }
 
-  const totalRange = getNumberRange(firstPage, lastPage)
+  const initialRange = getNumberRange(firstPage, firstPage + 3)
+  const finalRange = getNumberRange(lastPage - 3, lastPage)
 
-  const leftPivot = totalRange.indexOf(page) - 1 < firstPage
-    ? firstPage
-    : totalRange.indexOf(page) - 1
-
-  const rightPivot = totalRange.indexOf(page) + 1 > lastPage
-    ? lastPage
-    : totalRange.indexOf(page) + 1
-
-  const currentPageSplit = totalRange.slice(leftPivot, rightPivot + 1)
-
-  if (currentPageSplit.indexOf(firstPage) !== -1) {
+  if (initialRange.indexOf(page) !== -1) {
     return (
       <div className='CarbonaraTable-PaginationPages'>
-        {currentPageSplit.map((_page, index) => (
+        {[...initialRange, firstPage + 4].map((_page, index) => (
           <button
             key={`carbonarapaginationbutton_table_${_page}${page}${index}${handleSetPage}`}
             onClick={() => { page !== _page && handleSetPage(_page) }}
@@ -53,24 +44,22 @@ export const CarbonaraPaginationPage = ({ page, lastPage, firstPage, handleSetPa
         ))}
 
         <button className='CarbonaraTable-PaginationPageSeparator'>...</button>
-
-        <button onClick={() => handleSetPage(lastPage)}>
+        <button onClick={() => { handleSetPage(lastPage) }}>
           {lastPage + 1}
         </button>
       </div>
     )
   }
 
-  if (currentPageSplit.indexOf(lastPage) !== -1) {
+  if (finalRange.indexOf(page) !== -1) {
     return (
       <div className='CarbonaraTable-PaginationPages'>
-        <button onClick={() => handleSetPage(firstPage)}>
+        <button onClick={() => { handleSetPage(firstPage) }}>
           {firstPage + 1}
         </button>
-
         <button className='CarbonaraTable-PaginationPageSeparator'>...</button>
-
-        {currentPageSplit.map((_page, index) => (
+        
+        {[lastPage - 4, ...finalRange].map((_page, index) => (
           <button
             key={`carbonarapaginationbutton_table_${_page}${page}${index}${handleSetPage}`}
             onClick={() => { page !== _page && handleSetPage(_page) }}
@@ -83,28 +72,25 @@ export const CarbonaraPaginationPage = ({ page, lastPage, firstPage, handleSetPa
     )
   }
 
-
   return (
     <div className='CarbonaraTable-PaginationPages'>
-      <button onClick={() => handleSetPage(firstPage)}>
+      <button onClick={() => { handleSetPage(firstPage) }}>
         {firstPage + 1}
+      </button>
+      <button className='CarbonaraTable-PaginationPageSeparator'>...</button>
+
+      <button onClick={() => { handleSetPage(page - 1) }}>
+        {page}
+      </button>
+      <button className={'CarbonaraTable-PaginationPage--Selected'}>
+        {page + 1}
+      </button>
+      <button onClick={() => { handleSetPage(page + 1) }}>
+        {page + 2}
       </button>
 
       <button className='CarbonaraTable-PaginationPageSeparator'>...</button>
-
-      {currentPageSplit.map((_page, index) => (
-        <button
-          key={`carbonarapaginationbutton_table_${_page}${page}${index}${handleSetPage}`}
-          onClick={() => { page !== _page && handleSetPage(_page) }}
-          className={page === _page ? 'CarbonaraTable-PaginationPage--Selected' : ''}
-        >
-          {_page + 1}
-        </button>
-      ))}
-
-      <button className='CarbonaraTable-PaginationPageSeparator'>...</button>
-
-      <button onClick={() => handleSetPage(lastPage)}>
+      <button onClick={() => { handleSetPage(lastPage) }}>
         {lastPage + 1}
       </button>
     </div>
