@@ -3,18 +3,19 @@
 }
 
 .CarbonaraTable-CardList::-webkit-scrollbar {
-	width: 5px;
-	height: 5px;
+	width: 8px;
+	height: 8px;
 	transform: translate(10px);
 }
 
 .CarbonaraTable-CardList::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 5px var(--carbonara-table--color-gray); 
-	border-radius: 20px;
+	border: 1px solid var(--carbonara-table--color-gray);
+	border-radius: 3px;
 }
 
 .CarbonaraTable-CardList::-webkit-scrollbar-thumb {
-	border-radius: 20px;
+	border-radius: 3px;
 	background: var(--carbonara-table--color-primary); 
 }
 
