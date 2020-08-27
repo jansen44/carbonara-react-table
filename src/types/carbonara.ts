@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react'
 import {
   CarbonaraAction,
   CarbonaraGroupedDataDefinition,
@@ -17,7 +18,8 @@ export type CarbonaraComponentProps = {
   lastPage?: number
   showCards?: boolean
   maxShowCardsWidth: number,
-  datagrid?: boolean
+  datagrid?: boolean,
+  NoData?: string | FunctionComponent
 }
 
 // ? Main CarbonaraComponent state

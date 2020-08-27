@@ -8,7 +8,7 @@ import {
   CarbonaraGroupedDataDefinition
 } from '../types'
 
-import { getNestedValue, Debounce } from '../util'
+import { getNestedValue, Debounce, isString } from '../util'
 import { CarbonaraCardList } from './CarbonaraCardList'
 import { CarbonaraDataGrid } from './CarbonaraDataGrid'
 import { CarbonaraDataTable } from './CarbonaraTable'
@@ -95,6 +95,7 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       rowData: datum
     }
   }
+
   renderPagination(className: string, page: number, handleSetPage: (page: number) => void): JSX.Element {
     const { loading, lastPage, firstPage } = this.props
 
@@ -110,8 +111,17 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
   }
 
   renderComponent(): JSX.Element {
-    const { columns, onRowClick, showCards, maxShowCardsWidth, datagrid } = this.props
+    const { columns, onRowClick, showCards, maxShowCardsWidth, datagrid, NoData } = this.props
     const { tableRows, tableDimensions } = this.state
+
+    if (tableRows.length === 0) {
+      if (!!NoData) {
+        return isString(NoData)
+          ? <div>{NoData}</div>
+          : <NoData />
+      }
+      return <div>No Data Available</div>
+    }
 
     if (!!showCards && (tableDimensions.width <= maxShowCardsWidth)) {
       return <CarbonaraCardList cards={tableRows} onCardClick={onRowClick} />
