@@ -1,12 +1,31 @@
 import React, { CSSProperties } from 'react'
+import ArrowDown from '../../assets/arrowDown.svg'
 import { CarbonaraTHeadDataProps } from '../../types'
 
-export const CarbonaraTHeadData = ({ column, sortBy }: CarbonaraTHeadDataProps) => {
+export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect }: CarbonaraTHeadDataProps) => {
   const style: CSSProperties = {
     minWidth: '',
     maxWidth: '',
     width: ''
   }
+
+  const imgStyle: CSSProperties = {
+    opacity: 0,
+    transform: 'translateY(-50%) rotate(0)'
+  }
+
+  const handleSort = !!onSortSelect
+    ? () => {
+      if (!!sortBy && column.field === sortBy.field) {
+        onSortSelect(sortBy.order === 'desc'
+          ? undefined
+          : { field: sortBy.field, order: 'desc' }
+        )
+      } else {
+        onSortSelect({ field: column.field, order: 'asc' })
+      }
+    }
+    : undefined
 
   if (!!column.width && column.width.indexOf('%') === -1) {
     style['minWidth'] = column.width
@@ -14,14 +33,22 @@ export const CarbonaraTHeadData = ({ column, sortBy }: CarbonaraTHeadDataProps) 
     style['width'] = column.width
   }
 
-  if (!!sortBy && column.field === sortBy.field) {
-    console.log('Ordered by: ', sortBy.field)
-    console.log('Order: ', sortBy.order)
+  if (!!onSortSelect) {
+    style['cursor'] = 'pointer'
   }
-   
+
+  if (!!sortBy && sortBy.field === column.field) {
+    imgStyle['opacity'] = 1
+
+    if (sortBy.order === 'desc') {
+      imgStyle['transform'] = 'translateY(-50%) rotate(180deg)'
+    }
+  }
+
   return (
-    <th style={style}>
-      {column.label}
+    <th style={style} onClick={handleSort}>
+      <span>{column.label}</span>
+      <img src={ArrowDown} style={imgStyle} />
     </th>
   )
 }
