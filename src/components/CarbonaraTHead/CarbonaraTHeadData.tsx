@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react'
 import ArrowDown from '../../assets/arrowDown.svg'
 import { CarbonaraTHeadDataProps } from '../../types'
 
-export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect }: CarbonaraTHeadDataProps) => {
+export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect, loading }: CarbonaraTHeadDataProps) => {
   const style: CSSProperties = {
     minWidth: '',
     maxWidth: '',
@@ -14,7 +14,7 @@ export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect }: CarbonaraTH
     transform: 'translateY(-50%) rotate(0)'
   }
 
-  const handleSort = !!onSortSelect
+  const handleSort = !!onSortSelect && !loading
     ? () => {
       if (!!sortBy && column.field === sortBy.field) {
         onSortSelect(sortBy.order === 'desc'
@@ -33,7 +33,7 @@ export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect }: CarbonaraTH
     style['width'] = column.width
   }
 
-  if (!!onSortSelect) {
+  if (!!onSortSelect && !loading) {
     style['cursor'] = 'pointer'
   }
 

@@ -5,12 +5,12 @@ import { CarbonaraTHead } from './CarbonaraTHead'
 
 export class CarbonaraDataTable extends Component<CarbonaraTableProps> {
   render() {
-    const { columns, rows, onRowClick, onSortSelect, sortBy } = this.props
+    const { columns, rows, onRowClick, onSortSelect, sortBy, loading } = this.props
 
     return (
       <div className='CarbonaraTable-TableContainer'>
         <table>
-          <CarbonaraTHead columns={columns} onSortSelect={onSortSelect} sortBy={sortBy}/>
+          <CarbonaraTHead columns={columns} onSortSelect={onSortSelect} sortBy={sortBy} loading={loading} />
           <CarbonaraTBody rows={rows} onRowClick={onRowClick} />
         </table>
       </div >

@@ -11,7 +11,7 @@ export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
   }
 
   render() {
-    const { columns, rows, onRowClick, sortBy, onSortSelect } = this.props
+    const { columns, rows, onRowClick, sortBy, onSortSelect, loading } = this.props
 
     return (
       <div className='CarbonaraTable-DataGridContainer'>
@@ -21,6 +21,7 @@ export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
               columns={columns}
               sortBy={sortBy}
               onSortSelect={onSortSelect}
+              loading={loading}
             />
           </table>
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { CarbonaraTHeadProps } from '../../types'
 import { CarbonaraTHeadData } from './CarbonaraTHeadData'
 
-export const CarbonaraTHead = ({ columns, className, onSortSelect, sortBy }: CarbonaraTHeadProps) => (
+export const CarbonaraTHead = ({ columns, className, onSortSelect, sortBy, loading }: CarbonaraTHeadProps) => (
   <thead className={`CarbonaraTable-THead ${className || ''}`}>
     <tr>
       {columns.map((column, index) => (
@@ -11,6 +11,7 @@ export const CarbonaraTHead = ({ columns, className, onSortSelect, sortBy }: Car
           column={column}
           onSortSelect={onSortSelect}
           sortBy={sortBy}
+          loading={loading}
         />
       ))}
     </tr>

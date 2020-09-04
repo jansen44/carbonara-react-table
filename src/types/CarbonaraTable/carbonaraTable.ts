@@ -10,5 +10,6 @@ export type CarbonaraTableProps = {
   rows: CarbonaraGroupedData[]
   onRowClick?: CarbonaraAction,
   sortBy?: CarbonaraSortBy,
-  onSortSelect?: (sortBy?: CarbonaraSortBy) => void 
+  onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
+  loading?: boolean
 }

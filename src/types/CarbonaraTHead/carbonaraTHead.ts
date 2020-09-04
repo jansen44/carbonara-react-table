@@ -4,5 +4,6 @@ export type CarbonaraTHeadProps = {
   columns: CarbonaraGroupedDataDefinition[],
   className?: string,
   sortBy?: CarbonaraSortBy,
-  onSortSelect?: (sortBy?: CarbonaraSortBy) => void 
+  onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
+  loading?: boolean
 }
