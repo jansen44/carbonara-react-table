@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react'
 import { CarbonaraTHeadDataProps } from '../../types'
 
-export const CarbonaraTHeadData = ({ column }: CarbonaraTHeadDataProps) => {
+export const CarbonaraTHeadData = ({ column, sortBy }: CarbonaraTHeadDataProps) => {
   const style: CSSProperties = {
     minWidth: '',
     maxWidth: '',
@@ -13,7 +13,12 @@ export const CarbonaraTHeadData = ({ column }: CarbonaraTHeadDataProps) => {
     style['maxWidth'] = column.width
     style['width'] = column.width
   }
-  
+
+  if (!!sortBy && column.field === sortBy.field) {
+    console.log('Ordered by: ', sortBy.field)
+    console.log('Order: ', sortBy.order)
+  }
+   
   return (
     <th style={style}>
       {column.label}

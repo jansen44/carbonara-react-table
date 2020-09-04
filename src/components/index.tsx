@@ -111,7 +111,16 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
   }
 
   renderComponent(): JSX.Element {
-    const { columns, onRowClick, showCards, maxShowCardsWidth, datagrid, NoData } = this.props
+    const {
+      columns,
+      onRowClick,
+      showCards,
+      maxShowCardsWidth,
+      datagrid,
+      NoData,
+      sortBy,
+      onSortSelect
+    } = this.props
     const { tableRows, tableDimensions } = this.state
 
     if (tableRows.length === 0) {
@@ -132,6 +141,8 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
         columns={columns}
         rows={tableRows}
         onRowClick={onRowClick}
+        sortBy={sortBy}
+        onSortSelect={onSortSelect}
       />
     }
 
@@ -139,6 +150,8 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       columns={columns}
       rows={tableRows}
       onRowClick={onRowClick}
+      sortBy={sortBy}
+      onSortSelect={onSortSelect}
     />
   }
 

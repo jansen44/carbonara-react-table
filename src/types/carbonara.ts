@@ -2,7 +2,8 @@ import { FunctionComponent } from 'react'
 import {
   CarbonaraAction,
   CarbonaraGroupedDataDefinition,
-  CarbonaraGroupedData
+  CarbonaraGroupedData,
+  CarbonaraSortBy
 } from './misc'
 
 // ? Main CarbonaraComponent props
@@ -19,7 +20,9 @@ export type CarbonaraComponentProps = {
   showCards?: boolean
   maxShowCardsWidth: number,
   datagrid?: boolean,
-  NoData?: string | FunctionComponent
+  NoData?: string | FunctionComponent,
+  sortBy?: CarbonaraSortBy,
+  onSortSelect?: (sortBy: CarbonaraSortBy) => void 
 }
 
 // ? Main CarbonaraComponent state

@@ -11,13 +11,17 @@ export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
   }
 
   render() {
-    const { columns, rows, onRowClick } = this.props
+    const { columns, rows, onRowClick, sortBy, onSortSelect } = this.props
 
     return (
       <div className='CarbonaraTable-DataGridContainer'>
         <div ref={el => this.dataGridHeaderRef = el} className='CarbonaraTable-DataGridHeaderWrapper'>
           <table>
-            <CarbonaraTHead columns={columns} />
+            <CarbonaraTHead
+              columns={columns}
+              sortBy={sortBy}
+              onSortSelect={onSortSelect}
+            />
           </table>
         </div>
 

@@ -1,6 +1,8 @@
-import { CarbonaraGroupedDataDefinition } from '../misc'
+import { CarbonaraGroupedDataDefinition, CarbonaraSortBy } from '../misc'
 
 export type CarbonaraTHeadProps = {
   columns: CarbonaraGroupedDataDefinition[],
-  className?: string
+  className?: string,
+  sortBy?: CarbonaraSortBy,
+  onSortSelect?: (sortBy: CarbonaraSortBy) => void 
 }

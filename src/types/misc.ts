@@ -31,3 +31,9 @@ export interface CarbonaraData extends CarbonaraGroupedDataDefinition {
   value: any,
   rowData: any
 }
+
+// ? SortBy Object
+export interface CarbonaraSortBy {
+  field: string,
+  order: 'asc' | 'desc'
+}

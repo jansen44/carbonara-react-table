@@ -1,11 +1,14 @@
 import {
   CarbonaraGroupedData,
   CarbonaraGroupedDataDefinition,
-  CarbonaraAction
+  CarbonaraAction,
+  CarbonaraSortBy
 } from './misc'
 
 export type CarbonaraDataGridProps = {
-  columns: CarbonaraGroupedDataDefinition[]
-  rows: CarbonaraGroupedData[]
-  onRowClick?: CarbonaraAction
+  columns: CarbonaraGroupedDataDefinition[],
+  rows: CarbonaraGroupedData[],
+  onRowClick?: CarbonaraAction,
+  sortBy?: CarbonaraSortBy,
+  onSortSelect?: (sortBy: CarbonaraSortBy) => void 
 }
