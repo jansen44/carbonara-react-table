@@ -40,7 +40,7 @@ export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect, loading }: Ca
   if (!!sortBy && sortBy.field === column.field) {
     imgStyle['opacity'] = 1
 
-    if (sortBy.order === 'desc') {
+    if (sortBy.order === 'asc') {
       imgStyle['transform'] = 'translateY(-50%) rotate(180deg)'
     }
   }
