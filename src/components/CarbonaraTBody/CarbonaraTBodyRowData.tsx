@@ -15,7 +15,9 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
   }, [tdRef, divRef, spanRef])
 
   const style: CSSProperties = {
-    wordBreak: 'break-all'
+    wordBreak: 'break-all',
+    paddingTop: '15px',
+    paddingBottom: '15px'
   }
 
   if (!!data.width && data.width.indexOf('%') === -1) {
@@ -26,6 +28,9 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
 
   let value = data.value
   if (!!rowHeight && !data.render && !!spanRef.current) {
+    style['paddingTop'] = ''
+    style['paddingBottom'] = ''
+
     // Todo: Treat cases where font-size is not in px.
     const fontWidthPX = parseFloat(window.getComputedStyle(spanRef.current).fontSize) / 2
     const sliceOffset = (divWidth / fontWidthPX) - (fontWidthPX / 5)
