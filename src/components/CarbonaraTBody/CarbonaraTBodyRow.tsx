@@ -22,7 +22,11 @@ export const CarbonaraTBodyRow = ({ row, onRowClick, rowHeight }: CarbonaraTBody
       className={`CarbonaraTable-TBodyRow ${onRowClick ? 'CarbonaraTable-TBodyRow--Clickable' : ''}`}
     >
       {row.map((data, index) => (
-        <CarbonaraTBodyRowData key={`${data.value}_body_${index}`} data={data} />
+        <CarbonaraTBodyRowData
+          key={`${data.value}_body_${index}`}
+          data={data}
+          rowHeight={rowHeight}
+        />
       ))}
     </tr>
   )

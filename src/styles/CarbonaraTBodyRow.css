@@ -2,7 +2,6 @@
   min-width: 200px;
 	max-width: 200px;
 	padding: 10px 20px;
-  word-wrap: break-word;
   box-sizing: border-box;
   
   color: var(--carbonara-table--color-text);

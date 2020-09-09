@@ -1,11 +1,21 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, useRef, useLayoutEffect, useState } from 'react'
 import { CarbonaraTBodyRowDataProps } from '../../types'
 
-export const CarbonaraTBodyRowData = ({ data }: CarbonaraTBodyRowDataProps) => {
+export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowDataProps) => {
+  const [divWidth, setDivWidth] = useState(0)
+  const [tdHeight, setTdHeight] = useState(0)
+
+  const tdRef = useRef<HTMLTableDataCellElement>(null)
+  const divRef = useRef<HTMLDivElement>(null)
+  const spanRef = useRef<HTMLSpanElement>(null)
+
+  useLayoutEffect(() => {
+    setDivWidth(divRef.current?.offsetWidth || 0)
+    setTdHeight(tdRef.current?.offsetHeight || 0)
+  }, [tdRef, divRef, spanRef])
+
   const style: CSSProperties = {
-    minWidth: '',
-    maxWidth: '',
-    width: ''
+    wordBreak: 'break-all'
   }
 
   if (!!data.width && data.width.indexOf('%') === -1) {
@@ -14,11 +24,28 @@ export const CarbonaraTBodyRowData = ({ data }: CarbonaraTBodyRowDataProps) => {
     style['width'] = data.width
   }
 
+  let value = data.value
+  if (!!rowHeight && !data.render && !!spanRef.current) {
+    // Todo: Treat cases where font-size is not in px.
+    const fontWidthPX = parseFloat(window.getComputedStyle(spanRef.current).fontSize) / 2
+    const sliceOffset = (divWidth / fontWidthPX) - (fontWidthPX / 5)
+
+    if (tdHeight > rowHeight && typeof value === 'string' && value.length > sliceOffset) {
+      value = `${value.slice(0, sliceOffset)}...`
+      style['wordBreak'] = 'normal'
+      style['whiteSpace'] = 'nowrap'
+    }
+  }
+
   return (
-    <td style={style}>
+    <td ref={tdRef} style={style}>
       {data.render
-        ? <data.render value={data.value} rowData={data.rowData} />
-        : <div><span>{data.value}</span></div>
+        ? <data.render value={value} rowData={data.rowData} />
+        : (
+          <div ref={divRef}>
+            <span ref={spanRef}>{value}</span>
+          </div>
+        )
       }
     </td>
   )
