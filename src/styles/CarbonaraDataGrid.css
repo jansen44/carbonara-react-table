@@ -17,24 +17,3 @@
 .CarbonaraTable-DataGridBodyWrapper {
 	overflow: auto;	
 }
-
-.CarbonaraTable-DataGridBodyWrapper::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
-	transform: translate(10px);
-}
-
-.CarbonaraTable-DataGridBodyWrapper::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 5px var(--carbonara-table--color-gray); 
-	border: 1px solid var(--carbonara-table--color-gray);
-	border-radius: 3px;
-}
-
-.CarbonaraTable-DataGridBodyWrapper::-webkit-scrollbar-thumb {
-	border-radius: 3px;
-	background: var(--carbonara-table--color-primary); 
-}
-
-.CarbonaraTable-DataGridBodyWrapper::-webkit-scrollbar-thumb:hover {
-	background: var(--carbonara-table--color-secondary); 
-}

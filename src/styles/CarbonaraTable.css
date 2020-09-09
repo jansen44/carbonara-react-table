@@ -18,27 +18,6 @@
   height: calc(100% - 40px);
 }
 
-.CarbonaraTable-TableContainer table tbody::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
-	transform: translate(10px);
-}
-
-.CarbonaraTable-TableContainer table tbody::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px var(--carbonara-table--color-gray); 
-  border: 1px solid var(--carbonara-table--color-gray);
-	border-radius: 3px;
-}
-
-.CarbonaraTable-TableContainer table tbody::-webkit-scrollbar-thumb {
-	border-radius: 3px;
-	background: var(--carbonara-table--color-primary); 
-}
-
-.CarbonaraTable-TableContainer table tbody::-webkit-scrollbar-thumb:hover {
-	background: var(--carbonara-table--color-secondary); 
-}
-
 .CarbonaraTable-TableContainer table {
   max-width: 100%;
   width: -webkit-fit-content;
