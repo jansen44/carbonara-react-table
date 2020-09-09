@@ -11,5 +11,6 @@ export type CarbonaraTableProps = {
   onRowClick?: CarbonaraAction,
   sortBy?: CarbonaraSortBy,
   onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
+  rowHeight?: number,
   loading?: boolean
 }

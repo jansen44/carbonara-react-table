@@ -120,7 +120,8 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       NoData,
       sortBy,
       onSortSelect,
-      loading
+      loading,
+      rowHeight
     } = this.props
     const { tableRows, tableDimensions } = this.state
 
@@ -145,6 +146,7 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
         sortBy={sortBy}
         onSortSelect={onSortSelect}
         loading={loading}
+        rowHeight={rowHeight}
       />
     }
 
@@ -155,6 +157,7 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       sortBy={sortBy}
       onSortSelect={onSortSelect}
       loading={loading}
+      rowHeight={rowHeight}
     />
   }
 

@@ -11,5 +11,6 @@ export type CarbonaraDataGridProps = {
   onRowClick?: CarbonaraAction,
   sortBy?: CarbonaraSortBy,
   onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
-  loading?: boolean
+  loading?: boolean,
+  rowHeight?: number,
 }

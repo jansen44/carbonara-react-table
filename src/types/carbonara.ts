@@ -22,7 +22,8 @@ export type CarbonaraComponentProps = {
   datagrid?: boolean,
   NoData?: string | FunctionComponent,
   sortBy?: CarbonaraSortBy,
-  onSortSelect?: (sortBy?: CarbonaraSortBy) => void 
+  onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
+  rowHeight?: number,
 }
 
 // ? Main CarbonaraComponent state
