@@ -15,4 +15,5 @@ import './CarbonaraPaginationPage.css'
 import './CarbonaraTable.css'
 
 import './CarbonaraTBodyRow.css'
+import './CarbonaraTBodyRowData.css'
 import './CarbonaraTHead.css'

@@ -43,7 +43,7 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
   }
 
   return (
-    <td ref={tdRef} style={style}>
+    <td className='CarbonaraTable-TBodyRowData' ref={tdRef} style={style}>
       {data.render
         ? <data.render value={value} rowData={data.rowData} />
         : (
