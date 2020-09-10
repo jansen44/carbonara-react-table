@@ -18,11 +18,6 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
     setDivWidth(divRef.current?.offsetWidth || 0)
     setSpanWidth(spanRef.current?.offsetWidth || 0)
     setSpanHeight(spanRef.current?.offsetHeight || 0)
-
-    if (!!tdRef.current) {
-      tdRef.current.addEventListener('mouseover', () => showTooltip(data.value, tdRef.current))
-      tdRef.current.addEventListener('mouseleave', () => hideTooltip())
-    }
   }, [divRef, spanRef, tdRef])
 
   // ? Handle overflowing string content
@@ -41,6 +36,14 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
     }
     setFormattedValue(value)
   }, [divWidth, spanHeight, spanWidth])
+
+  // ? Add tooltip handlers
+  useEffect(() => {
+    if (!!tdRef.current && formattedValue !== data.value) {
+      tdRef.current.addEventListener('mouseover', () => showTooltip(data.value, tdRef.current))
+      tdRef.current.addEventListener('mouseleave', () => hideTooltip())
+    }
+  }, [formattedValue, tdRef])
 
   if (!!data.width && data.width.indexOf('%') === -1) {
     style['minWidth'] = data.width

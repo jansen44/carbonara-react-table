@@ -21,7 +21,18 @@ export const useTooltip = () => {
             tooltip.classList.add('CarbonaraTooltip--Show')
             if (!!content) { tooltip.innerHTML = content }
             if (!!target) {
+                const parentTableBoundingClient = target.closest('tbody')?.getBoundingClientRect()
                 const boundingClient = target.getBoundingClientRect()
+
+                if (!!parentTableBoundingClient) {
+                    const targetTotalHeight = boundingClient.y + (boundingClient.height / 2)
+                    const parentTotalHeight = parentTableBoundingClient.y + parentTableBoundingClient.height
+
+                    if (targetTotalHeight > parentTotalHeight) {
+                        tooltip.classList.remove('CarbonaraTooltip--Show')
+                    }
+                }
+
                 const tooltipY = boundingClient.y + boundingClient.height
                 const tooltipX = (boundingClient.x + boundingClient.width / 2) - (target.getBoundingClientRect().width / 2)
 
