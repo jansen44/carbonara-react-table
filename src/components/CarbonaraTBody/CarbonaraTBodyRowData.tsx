@@ -3,20 +3,19 @@ import { CarbonaraTBodyRowDataProps } from '../../types'
 
 export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowDataProps) => {
   const [divWidth, setDivWidth] = useState(0)
-  const [tdHeight, setTdHeight] = useState(0)
+  const [spanWidth, setSpanWidth] = useState(0)
+  const [spanHeight, setSpanHeight] = useState(0)
 
-  const tdRef = useRef<HTMLTableDataCellElement>(null)
   const divRef = useRef<HTMLDivElement>(null)
   const spanRef = useRef<HTMLSpanElement>(null)
 
   useLayoutEffect(() => {
     setDivWidth(divRef.current?.offsetWidth || 0)
-    setTdHeight(tdRef.current?.offsetHeight || 0)
-  }, [tdRef, divRef, spanRef])
+    setSpanWidth(spanRef.current?.offsetWidth || 0)
+    setSpanHeight(spanRef.current?.offsetHeight || 0)
+  }, [divRef, spanRef])
 
-  const style: CSSProperties = {
-    wordBreak: 'break-all'
-  }
+  const style: CSSProperties = {}
 
   if (!!data.width && data.width.indexOf('%') === -1) {
     style['minWidth'] = data.width
@@ -28,17 +27,17 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
   if (!!rowHeight && !data.render && !!spanRef.current) {
     // Todo: Treat cases where font-size is not in px.
     const fontWidthPX = parseFloat(window.getComputedStyle(spanRef.current).fontSize) / 2
-    const sliceOffset = (divWidth / fontWidthPX) - (fontWidthPX / 5)
+    const sliceOffset = (divWidth / fontWidthPX) - fontWidthPX
 
-    if (tdHeight > rowHeight && typeof value === 'string' && value.length > sliceOffset) {
+    if (
+      (spanHeight > rowHeight && typeof value === 'string' && value.length > sliceOffset)
+      || divWidth < spanWidth) {
       value = `${value.slice(0, sliceOffset)}...`
-      style['wordBreak'] = 'normal'
-      style['whiteSpace'] = 'nowrap'
     }
   }
 
   return (
-    <td className='CarbonaraTable-TBodyRowData' ref={tdRef} style={style}>
+    <td className='CarbonaraTable-TBodyRowData' style={style}>
       {data.render
         ? <data.render value={value} rowData={data.rowData} />
         : (
