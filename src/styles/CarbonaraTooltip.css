@@ -1,0 +1,21 @@
+.CarbonaraTooltip {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    padding: 5px;
+    background: #262626;
+    color: white;
+    z-index: 5;
+
+    -webkit-transition: .1s opacity;
+    /* -webkit-transition-delay: .5s; */
+    transition: .1s opacity;
+    /* transition-delay: .5s; */
+}
+
+
+.CarbonaraTooltip--Show {
+    opacity: 1;
+    visibility: visible;
+  }
+  

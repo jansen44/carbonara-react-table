@@ -3,6 +3,7 @@
 	max-width: 200px;
 	padding: 0 20px;
   box-sizing: border-box;
+  position: relative;
   
   color: var(--carbonara-table--color-text);
   border-bottom: 1px solid var(--carbonara-table--color-light-gray);

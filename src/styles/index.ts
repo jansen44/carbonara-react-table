@@ -4,6 +4,7 @@ import './Carbonara.css'
 import './CarbonaraCard.css'
 import './CarbonaraCardItem.css'
 import './CarbonaraCardList.css'
+import './CarbonaraTooltip.css'
 
 import './CarbonaraDataGrid.css'
 

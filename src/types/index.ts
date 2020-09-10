@@ -2,6 +2,7 @@ export * from './misc'
 export * from './carbonara'
 export * from './carbonaraIconButton'
 export * from './carbonaraDataGrid'
+export * from './carbonaraTooltip'
 
 export * from './CarbonaraCardList'
 export * from './CarbonaraPagination'
