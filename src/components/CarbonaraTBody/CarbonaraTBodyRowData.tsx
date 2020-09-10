@@ -14,6 +14,12 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
   const spanRef = useRef<HTMLSpanElement>(null)
   const tdRef = useRef<HTMLTableDataCellElement>(null)
 
+  if (!!rowHeight) {
+    style.minHeight = `${rowHeight}px`
+    style.maxHeight = `${rowHeight}px`
+    style.height = `${rowHeight}px`
+  }
+
   useLayoutEffect(() => {
     setDivWidth(divRef.current?.offsetWidth || 0)
     setSpanWidth(spanRef.current?.offsetWidth || 0)
