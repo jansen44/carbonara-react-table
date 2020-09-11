@@ -16,10 +16,14 @@ export const useTooltip = () => {
         tooltip?.addEventListener('mouseleave', () => hide())
     }
 
-    const show = (content?: string, target?: HTMLElement | null) => {
+    const show = (content?: string | string[], target?: HTMLElement | null) => {
         if (!!tooltip) {
             tooltip.classList.add('CarbonaraTooltip--Show')
-            if (!!content) { tooltip.innerHTML = content }
+            if (!!content) { 
+                tooltip.innerHTML = Array.isArray(content)
+                    ? content.map(_content => `<p>${_content}</p>`).join(' ')
+                    : content
+            }
             if (!!target) {
                 const parentTableBoundingClient = target.closest('tbody')?.getBoundingClientRect()
                 const boundingClient = target.getBoundingClientRect()
