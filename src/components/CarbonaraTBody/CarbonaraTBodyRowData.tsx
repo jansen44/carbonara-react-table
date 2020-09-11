@@ -45,7 +45,7 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
 
   // ? Add tooltip handlers
   useEffect(() => {
-    let content = !!data.setTooltipContent ? data.setTooltipContent(data.rowData) : null
+    let content = !!data.setTooltipContent ? data.setTooltipContent(data.value, data.rowData) : null
     if (!content && !data.setTooltipContent) {
       content = formattedValue !== data.value ? data.value : null
     }

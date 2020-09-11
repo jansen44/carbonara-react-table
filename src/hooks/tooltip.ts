@@ -11,9 +11,6 @@ export const useTooltip = () => {
 
         body?.appendChild(tooltipComponent)
         tooltip = document.getElementById('CarbonaraTooltip')
-
-        tooltip?.addEventListener('mouseenter', () => show())
-        tooltip?.addEventListener('mouseleave', () => hide())
     }
 
     const show = (content?: string | string[] | null, target?: HTMLElement | null) => {

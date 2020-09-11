@@ -40,4 +40,4 @@ export interface CarbonaraSortBy {
   order: 'asc' | 'desc'
 }
 
-export type CarbonaraSetTooltip = (rowData: any) => string | string[] | null | undefined
+export type CarbonaraSetTooltip = (value: any, rowData: any) => string | string[] | null | undefined
