@@ -45,16 +45,16 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
 
   // ? Add tooltip handlers
   useEffect(() => {
-    if (!!tdRef.current && (formattedValue !== data.value || !!data.setTooltipContent)) {
-      tdRef.current.addEventListener('mouseover', () => {
-        showTooltip(
-          data.setTooltipContent ? data.setTooltipContent(data.rowData) : data.value, 
-          tdRef.current
-        )
-      })
+    let content = !!data.setTooltipContent ? data.setTooltipContent(data.rowData) : null
+    if (!content && !data.setTooltipContent) {
+      content = formattedValue !== data.value ? data.value : null
+    }
+
+    if (!!tdRef.current && !!content && content !== null) {
+      tdRef.current.addEventListener('mouseenter', () => showTooltip(content, tdRef.current))
       tdRef.current.addEventListener('mouseleave', () => hideTooltip())
     }
-  }, [formattedValue, tdRef, data.setTooltipContent])
+  }, [formattedValue, tdRef, data])
 
   if (!!data.width && data.width.indexOf('%') === -1) {
     style['minWidth'] = data.width

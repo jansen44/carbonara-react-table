@@ -24,14 +24,14 @@ export interface CarbonaraGroupedDataDefinition {
   width?: string,
   align?: 'left' | 'center' | 'right' | 'justify',
   render?: FunctionComponent<CarbonaraGroupedDataDefinitionRenderProps>,
-  setTooltipContent?: (rowData: any) => string | string[]
+  setTooltipContent?: CarbonaraSetTooltip
 }
 
 // ? Cells and Card Items
 export interface CarbonaraData extends CarbonaraGroupedDataDefinition {
   value: any,
   rowData: any,
-  setTooltipContent?: (rowData: any) => string | string[]
+  setTooltipContent?: CarbonaraSetTooltip
 }
 
 // ? SortBy Object
@@ -39,3 +39,5 @@ export interface CarbonaraSortBy {
   field: string,
   order: 'asc' | 'desc'
 }
+
+export type CarbonaraSetTooltip = (rowData: any) => string | string[] | null | undefined
