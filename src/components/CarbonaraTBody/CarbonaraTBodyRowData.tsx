@@ -45,11 +45,16 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
 
   // ? Add tooltip handlers
   useEffect(() => {
-    if (!!tdRef.current && formattedValue !== data.value) {
-      tdRef.current.addEventListener('mouseover', () => showTooltip(data.value, tdRef.current))
+    if (!!tdRef.current && (formattedValue !== data.value || !!data.setTooltipContent)) {
+      tdRef.current.addEventListener('mouseover', () => {
+        showTooltip(
+          data.setTooltipContent ? data.setTooltipContent(data.rowData) : data.value, 
+          tdRef.current
+        )
+      })
       tdRef.current.addEventListener('mouseleave', () => hideTooltip())
     }
-  }, [formattedValue, tdRef])
+  }, [formattedValue, tdRef, data.setTooltipContent])
 
   if (!!data.width && data.width.indexOf('%') === -1) {
     style['minWidth'] = data.width
@@ -59,7 +64,7 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
 
   if (!!data.render) {
     return (
-      <td className='CarbonaraTable-TBodyRowData' style={style}>
+      <td className='CarbonaraTable-TBodyRowData' style={style} ref={tdRef}>
         <data.render value={data.value} rowData={data.rowData} />
       </td>
     )

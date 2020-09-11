@@ -23,13 +23,15 @@ export interface CarbonaraGroupedDataDefinition {
   label: string,
   width?: string,
   align?: 'left' | 'center' | 'right' | 'justify',
-  render?: FunctionComponent<CarbonaraGroupedDataDefinitionRenderProps>
+  render?: FunctionComponent<CarbonaraGroupedDataDefinitionRenderProps>,
+  setTooltipContent?: (rowData: any) => string | string[]
 }
 
 // ? Cells and Card Items
 export interface CarbonaraData extends CarbonaraGroupedDataDefinition {
   value: any,
-  rowData: any
+  rowData: any,
+  setTooltipContent?: (rowData: any) => string | string[]
 }
 
 // ? SortBy Object
