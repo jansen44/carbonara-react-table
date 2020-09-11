@@ -2,6 +2,7 @@
   "name": "carbonara-react-table",
   "version": "0.1.11",
   "description": "",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "scripts": {
     "build": "rm -Rf build && tsc && gulp css && gulp assets"
   },
