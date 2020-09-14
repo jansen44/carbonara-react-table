@@ -13,4 +13,5 @@ export type CarbonaraDataGridProps = {
   onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
   loading?: boolean,
   rowHeight?: number,
+  shimmerLoadingRowsTotal: number
 }

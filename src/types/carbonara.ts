@@ -24,6 +24,7 @@ export type CarbonaraComponentProps = {
   sortBy?: CarbonaraSortBy,
   onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
   rowHeight?: number,
+  shimmerLoadingRowsTotal?: number
 }
 
 // ? Main CarbonaraComponent state

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { CarbonaraDataGridProps } from '../types'
 import { CarbonaraTBody } from './CarbonaraTBody'
 import { CarbonaraTHead } from './CarbonaraTHead'
+import { CarbonaraTBodyLoading } from './CarbonaraTBodyLoading'
 
 export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
   private dataGridHeaderRef: any = null
@@ -11,7 +12,16 @@ export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
   }
 
   render() {
-    const { columns, rows, onRowClick, sortBy, onSortSelect, loading, rowHeight } = this.props
+    const {
+      columns,
+      rows,
+      onRowClick,
+      sortBy,
+      onSortSelect,
+      loading,
+      rowHeight,
+      shimmerLoadingRowsTotal
+    } = this.props
 
     return (
       <div className='CarbonaraTable-DataGridContainer'>
@@ -28,7 +38,19 @@ export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
 
         <div onScroll={this.handleTableScroll} className='CarbonaraTable-DataGridBodyWrapper'>
           <table className='CarbonaraTable-DataGridBody'>
-            <CarbonaraTBody rows={rows} onRowClick={onRowClick} rowHeight={rowHeight} />
+            {
+              loading
+                ? <CarbonaraTBodyLoading
+                  shimmerLoadingRowsTotal={shimmerLoadingRowsTotal}
+                  columns={columns}
+                  rowHeight={rowHeight}
+                />
+                : <CarbonaraTBody
+                  rows={rows}
+                  onRowClick={onRowClick}
+                  rowHeight={rowHeight}
+                />
+            }
           </table>
         </div>
       </div>

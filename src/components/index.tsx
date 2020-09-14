@@ -17,6 +17,7 @@ import { CarbonaraTablePagination } from './CarbonaraPagination'
 export class CarbonaraTable extends Component<CarbonaraComponentProps, CarbonaraComponentState> {
   private debounce: any = new Debounce()
   private outerContainerRef: any = null
+  private _shimmerLoadingRowsTotal: number = 5
 
   public static defaultProps = {
     firstPage: 0,
@@ -121,11 +122,12 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       sortBy,
       onSortSelect,
       loading,
-      rowHeight
+      rowHeight,
+      shimmerLoadingRowsTotal
     } = this.props
     const { tableRows, tableDimensions } = this.state
 
-    if (tableRows.length === 0) {
+    if (tableRows.length === 0 && !loading) {
       if (!!NoData) {
         return isString(NoData)
           ? <div>{NoData}</div>
@@ -147,6 +149,11 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
         onSortSelect={onSortSelect}
         loading={loading}
         rowHeight={rowHeight}
+        shimmerLoadingRowsTotal={
+          shimmerLoadingRowsTotal === undefined
+            ? this._shimmerLoadingRowsTotal
+            : shimmerLoadingRowsTotal
+        }
       />
     }
 
@@ -158,6 +165,11 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       onSortSelect={onSortSelect}
       loading={loading}
       rowHeight={rowHeight}
+      shimmerLoadingRowsTotal={
+        shimmerLoadingRowsTotal === undefined
+          ? this._shimmerLoadingRowsTotal
+          : shimmerLoadingRowsTotal
+      }
     />
   }
 

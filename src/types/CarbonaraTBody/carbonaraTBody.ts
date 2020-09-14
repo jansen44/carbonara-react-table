@@ -4,6 +4,5 @@ export type CarbonaraTBodyProps = {
   rows: CarbonaraGroupedData[],
   onRowClick?: CarbonaraAction,
   className?: string,
-  rowHeight?: number,
-  loading?: boolean
+  rowHeight?: number
 }

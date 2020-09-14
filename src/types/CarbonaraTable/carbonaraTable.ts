@@ -12,5 +12,6 @@ export type CarbonaraTableProps = {
   sortBy?: CarbonaraSortBy,
   onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
   rowHeight?: number,
-  loading?: boolean
+  loading?: boolean,
+  shimmerLoadingRowsTotal: number
 }
