@@ -17,3 +17,8 @@
 .CarbonaraTable-DataGridBodyWrapper {
 	overflow: auto;	
 }
+
+.CarbonaraTable-DataGridBodyWrapper.isLoading {
+	overflow: hidden;
+	margin-top: 5px;
+}

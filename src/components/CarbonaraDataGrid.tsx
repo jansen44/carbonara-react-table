@@ -36,7 +36,10 @@ export class CarbonaraDataGrid extends Component<CarbonaraDataGridProps> {
           </table>
         </div>
 
-        <div onScroll={this.handleTableScroll} className='CarbonaraTable-DataGridBodyWrapper'>
+        <div
+          onScroll={this.handleTableScroll}
+          className={`CarbonaraTable-DataGridBodyWrapper ${loading ? 'isLoading' : ''}`}
+        >
           <table className='CarbonaraTable-DataGridBody'>
             {
               loading

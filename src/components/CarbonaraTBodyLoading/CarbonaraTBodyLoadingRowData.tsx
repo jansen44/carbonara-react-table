@@ -18,6 +18,7 @@ export const CarbonaraTBodyLoadingRowData = ({ rowHeight, width }: CarbonaraTBod
 
     return (
         <td className='CarbonaraTable-TBodyLoadingRowData' style={style}>
+            <div></div>
         </td>
     )
 }

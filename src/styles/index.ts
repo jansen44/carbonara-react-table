@@ -17,4 +17,5 @@ import './CarbonaraTable.css'
 
 import './CarbonaraTBodyRow.css'
 import './CarbonaraTBodyRowData.css'
+import './CarbonaraTBodyLoadingRowData.css'
 import './CarbonaraTHead.css'

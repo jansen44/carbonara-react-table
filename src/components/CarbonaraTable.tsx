@@ -36,7 +36,10 @@ export class CarbonaraDataTable extends Component<CarbonaraTableProps> {
           </table>
         </div>
 
-        <div onScroll={this.handleTableScroll} className='CarbonaraTable-TableBodyWrapper'>
+        <div
+          onScroll={this.handleTableScroll}
+          className={`CarbonaraTable-TableBodyWrapper ${loading ? 'isLoading' : ''}`}
+        >
           <table>
             {
               loading
