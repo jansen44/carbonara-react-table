@@ -10,7 +10,9 @@ export const CarbonaraTBodyLoading = ({ columns, rowHeight, shimmerLoadingRowsTo
 
     return (
         <tbody className='CarbonaraTable-TBodyLoading'>
-            {rows.map(Row => (<Row />))}
+            {rows.map((Row, index) => (
+                <Row key={`CarbonaraTBodyLoadingRow${new Date().getTime()}${index}`} />)
+            )}
         </tbody>
     )
 }
