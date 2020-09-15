@@ -35,7 +35,6 @@ export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect, loading }: Ca
       // Todo: Treat cases where font-size is not in px.
       const fontWidthPX = parseFloat(window.getComputedStyle(spanRef.current).fontSize) / 2
       const sliceOffset = (thWidth / fontWidthPX) - (fontWidthPX * 2)
-      console.log(thWidth, spanWidth)
 
       if (thWidth < spanWidth) {
         value = `${value.slice(0, sliceOffset)}...`
