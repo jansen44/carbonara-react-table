@@ -18,18 +18,27 @@ export const useTooltip = () => {
             tooltip.classList.add('CarbonaraTooltip--Show')
             if (!!content) {
                 tooltip.innerHTML = Array.isArray(content)
-                    ? content.map(_content => `<p>${_content}</p>`).join(' ')
-                    : `<p>${content}</p>`
+                    ? content.map(_content => (
+                        `<p>${typeof _content === 'string' ? _content.split('_').join(' ') : _content}</p>`
+                    )).join(' ')
+                    : `<p>${typeof content === 'string' ? content.split('_').join(' ') : content}</p>`
             }
             if (!!target) {
                 const parentTableBoundingClient = target.closest('.CarbonaraTable-TableContainer')?.getBoundingClientRect()
+                    || target.closest('.CarbonaraTable-DataGridContainer')?.getBoundingClientRect()
                 const boundingClient = target.getBoundingClientRect()
 
                 if (!!parentTableBoundingClient) {
                     const targetTotalHeight = boundingClient.y + (boundingClient.height / 2)
+                    const targetTotalWidth = boundingClient.x + (boundingClient.width / 1.5)
                     const parentTotalHeight = parentTableBoundingClient.y + parentTableBoundingClient.height
+                    const parentTotalWidth = parentTableBoundingClient.x + parentTableBoundingClient.width
 
-                    if (targetTotalHeight > parentTotalHeight) {
+                    if (
+                        targetTotalHeight > parentTotalHeight
+                        || targetTotalWidth > parentTotalWidth
+                        || boundingClient.x < parentTableBoundingClient.x / 1.5
+                    ) {
                         tooltip.classList.remove('CarbonaraTooltip--Show')
                     }
                 }
@@ -38,8 +47,8 @@ export const useTooltip = () => {
                 tooltip.style.left = `${(boundingClient.x + boundingClient.width / 2) - (boundingClient.width / 2)}px`
 
                 const tooltipRect = tooltip.getBoundingClientRect()
-                if (tooltipRect.x + tooltipRect.width > window.innerWidth) {
-                    tooltip.style.left = `${boundingClient.x - tooltipRect.width + parseFloat(window.getComputedStyle(target).paddingLeft)}px`
+                if (!!parentTableBoundingClient && boundingClient.x < parentTableBoundingClient.x) {
+                    tooltip.style.left = `${parentTableBoundingClient.x}px`
                 }
                 if (tooltipRect.y + tooltipRect.height > window.innerHeight) {
                     tooltip.style.top = `${boundingClient.y - tooltipRect.height}px`
