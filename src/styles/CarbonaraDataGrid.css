@@ -4,6 +4,8 @@
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	border: 1px solid var(--carbonara-table--color-light-text);
+	border-radius: 3px;
 }
 
 .CarbonaraTable-DataGridContainer table {
@@ -21,4 +23,34 @@
 .CarbonaraTable-DataGridBodyWrapper.isLoading {
 	overflow: hidden;
 	margin-top: 5px;
+}
+
+.CarbonaraTable-DataGridContainer .CarbonaraTable-TBodyRow:nth-child(odd) {
+	background: var(--carbonara-table--color-light-blue-gray-2);
+}
+
+.CarbonaraTable-DataGridContainer .CarbonaraTable-THead th {
+	border: 1px solid var(--carbonara-table--color-light-text);
+	border-top: none;
+}
+
+.CarbonaraTable-DataGridContainer .CarbonaraTable-THead th:last-child {
+	border-right: none;
+}
+
+.CarbonaraTable-DataGridContainer .CarbonaraTable-THead th:first-child {
+	border-left: none;
+}
+
+.CarbonaraTable-DataGridContainer .CarbonaraTable-TBodyRowData {
+	border-left: 1px solid var(--carbonara-table--color-light-text);
+	border-right: 1px solid var(--carbonara-table--color-light-text);
+}
+
+.CarbonaraTable-DataGridContainer .CarbonaraTable-TBodyRowData:last-child {
+	border-right: none;
+}
+
+.CarbonaraTable-DataGridContainer .CarbonaraTable-TBodyRowData:first-child {
+	border-left: none;
 }

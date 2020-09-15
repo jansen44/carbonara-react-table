@@ -5,5 +5,5 @@
 }
 
 .CarbonaraTable-TBodyRow--Clickable:hover {
-  background: var(--carbonara-table--color-light-gray-3);
+  background: var(--carbonara-table--color-light-gray-3) !important;
 }
