@@ -54,6 +54,8 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
       tdRef.current.addEventListener('mouseenter', () => showTooltip(content, tdRef.current))
       tdRef.current.addEventListener('mouseleave', () => hideTooltip())
     }
+
+    return () => hideTooltip()
   }, [formattedValue, tdRef, data])
 
   if (!!data.width && data.width.indexOf('%') === -1) {
