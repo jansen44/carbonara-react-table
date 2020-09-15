@@ -1,6 +1,6 @@
 {
   "name": "carbonara-react-table",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "",
   "scripts": {
     "build": "rm -Rf build && tsc && gulp css && gulp assets"
