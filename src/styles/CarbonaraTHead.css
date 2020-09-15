@@ -22,6 +22,10 @@
   position: relative;
 }
 
+.CarbonaraTable-THead th span {
+  white-space: nowrap;
+}
+
 .CarbonaraTable-THead th img {
   position: absolute;
   top: 50%;
