@@ -56,7 +56,7 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
     const { data, columns } = this.props
     const { oldData } = this.state
 
-    if (JSON.stringify(data) !== JSON.stringify(oldData)) {
+    if (JSON.stringify(data) !== JSON.stringify(oldData) || data !== oldData) {
       this.setState({
         tableRows: this.getTableRows(columns, data),
         oldData: data
