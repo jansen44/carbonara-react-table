@@ -53,7 +53,7 @@ export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect, loading }: Ca
     }
   }, [formattedValue, thRef])
 
-  const handleSort = !!onSortSelect && !loading
+  const handleSort = !!onSortSelect && !loading && column.field !== 'CARBONARA_ACTIONS'
     ? () => {
       if (!!sortBy && column.field === sortBy.field) {
         onSortSelect(sortBy.order === 'desc'
@@ -87,7 +87,7 @@ export const CarbonaraTHeadData = ({ column, sortBy, onSortSelect, loading }: Ca
   return (
     <th ref={thRef} style={style} onClick={handleSort}>
       <span ref={spanRef}>{formattedValue}</span>
-      <img src={ArrowDown} style={imgStyle} />
+      {!!handleSort && <img src={ArrowDown} style={imgStyle} />}
     </th>
   )
 }

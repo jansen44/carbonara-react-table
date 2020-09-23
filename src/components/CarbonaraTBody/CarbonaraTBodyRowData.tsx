@@ -30,8 +30,9 @@ export const CarbonaraTBodyRowData = ({ data, rowHeight }: CarbonaraTBodyRowData
   useEffect(() => {
     let value = data.value
     if (!!rowHeight && !data.render && !!spanRef.current) {
+      const factor = data.wordSplitFactor || 2
       // Todo: Treat cases where font-size is not in px.
-      const fontWidthPX = parseFloat(window.getComputedStyle(spanRef.current).fontSize) / 2
+      const fontWidthPX = parseFloat(window.getComputedStyle(spanRef.current).fontSize) / factor
       const sliceOffset = (divWidth / fontWidthPX) - fontWidthPX
 
       if (

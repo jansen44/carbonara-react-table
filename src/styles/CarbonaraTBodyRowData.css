@@ -9,3 +9,10 @@
   border-bottom: 1px solid var(--carbonara-table--color-light-gray);
   text-align: left;
 }
+
+
+.CarbonaraTable-TBodyRowData > .CarbonaraTable-TBodyRowActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

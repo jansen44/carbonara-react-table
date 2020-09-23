@@ -3,7 +3,8 @@ import {
   CarbonaraAction,
   CarbonaraGroupedDataDefinition,
   CarbonaraGroupedData,
-  CarbonaraSortBy
+  CarbonaraSortBy,
+  CarbonaraTableAction
 } from './misc'
 
 // ? Main CarbonaraComponent props
@@ -24,7 +25,10 @@ export type CarbonaraComponentProps = {
   sortBy?: CarbonaraSortBy,
   onSortSelect?: (sortBy?: CarbonaraSortBy) => void,
   rowHeight?: number,
-  shimmerLoadingRowsTotal?: number
+  shimmerLoadingRowsTotal?: number,
+  actions?: CarbonaraTableAction[],
+  actionsTitle?: string,
+  actionsWidth?: string
 }
 
 // ? Main CarbonaraComponent state

@@ -1,8 +1,9 @@
 import React, { CSSProperties } from 'react'
 import { CarbonaraTBodyRowProps } from '../../types'
 import { CarbonaraTBodyRowData } from './CarbonaraTBodyRowData'
+import { CarbonaraTBodyRowAction } from './CarbonaraTBodyRowAction'
 
-export const CarbonaraTBodyRow = ({ row, onRowClick, rowHeight }: CarbonaraTBodyRowProps) => {
+export const CarbonaraTBodyRow = ({ row, onRowClick, rowHeight, actions, actionsWidth }: CarbonaraTBodyRowProps) => {
   const style: CSSProperties = {
     minHeight: '',
     maxHeight: '',
@@ -28,6 +29,14 @@ export const CarbonaraTBodyRow = ({ row, onRowClick, rowHeight }: CarbonaraTBody
           rowHeight={rowHeight}
         />
       ))}
+      {(actions && actions.length > 0) && (
+        <CarbonaraTBodyRowAction
+          actions={actions}
+          row={row}
+          actionWidth={actionsWidth}
+          rowHeight={rowHeight}
+        />
+      )}
     </tr>
   )
 }

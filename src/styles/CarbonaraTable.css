@@ -8,6 +8,7 @@
 
 .CarbonaraTable-TableContainer table {
 	border-collapse: collapse;
+	width: 100%;
 }
 
 .CarbonaraTable-TableHeaderWrapper {

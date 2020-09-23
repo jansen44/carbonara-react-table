@@ -3,6 +3,18 @@ import { MouseEvent, FunctionComponent } from 'react'
 // ? RowClick, CardClick (ColumnClick on a near future?)
 export type CarbonaraAction = (data: any, evt: CarbonaraActionEvent) => void
 
+// ? Action inserted at the final of a table row or at a section a card
+export type CarbonaraTableAction = {
+  className?: string,
+  Child: FunctionComponent<CarbonaraTableActionChildProps>,
+  onClick: (row: CarbonaraGroupedData) => void
+}
+
+export type CarbonaraTableActionChildProps = {
+  className?: string,
+  onClick: (row: CarbonaraGroupedData) => void
+}
+
 // ? Possible events for possible elements with a CarbonaraAction attached
 export type CarbonaraActionEvent =
   MouseEvent<HTMLTableRowElement, globalThis.MouseEvent>
@@ -24,7 +36,8 @@ export interface CarbonaraGroupedDataDefinition {
   width?: string,
   align?: 'left' | 'center' | 'right' | 'justify',
   render?: FunctionComponent<CarbonaraGroupedDataDefinitionRenderProps>,
-  setTooltipContent?: CarbonaraSetTooltip
+  setTooltipContent?: CarbonaraSetTooltip,
+  wordSplitFactor?: number
 }
 
 // ? Cells and Card Items

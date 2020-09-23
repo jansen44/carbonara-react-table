@@ -49,7 +49,7 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
     })
 
     this.handleTableResize()
-    window.addEventListener('resize', () => this.debouncedHandleSizeChange(700))
+    window.addEventListener('resize', () => this.debouncedHandleSizeChange(400))
   }
 
   componentDidUpdate() {
@@ -123,7 +123,10 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       onSortSelect,
       loading,
       rowHeight,
-      shimmerLoadingRowsTotal
+      shimmerLoadingRowsTotal,
+      actions,
+      actionsTitle,
+      actionsWidth
     } = this.props
     const { tableRows, tableDimensions } = this.state
 
@@ -137,7 +140,7 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
     }
 
     if (!!showCards && (tableDimensions.width <= maxShowCardsWidth)) {
-      return <CarbonaraCardList cards={tableRows} onCardClick={onRowClick} />
+      return <CarbonaraCardList cards={tableRows} onCardClick={onRowClick} actions={actions} />
     }
 
     if (!!datagrid) {
@@ -165,6 +168,9 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       onSortSelect={onSortSelect}
       loading={loading}
       rowHeight={rowHeight}
+      actions={actions}
+      actionsTitle={actionsTitle}
+      actionsWidth={actionsWidth}
       shimmerLoadingRowsTotal={
         shimmerLoadingRowsTotal === undefined
           ? this._shimmerLoadingRowsTotal

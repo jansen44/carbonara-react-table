@@ -1,8 +1,10 @@
-import { CarbonaraAction, CarbonaraGroupedData } from '../misc'
+import { CarbonaraAction, CarbonaraGroupedData, CarbonaraTableAction } from '../misc'
 
 export type CarbonaraTBodyProps = {
   rows: CarbonaraGroupedData[],
   onRowClick?: CarbonaraAction,
   className?: string,
-  rowHeight?: number
+  rowHeight?: number,
+  actions?: CarbonaraTableAction[],
+  actionsWidth?: string
 }
