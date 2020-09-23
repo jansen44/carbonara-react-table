@@ -13,9 +13,12 @@
   border: 1px solid var(--carbonara-table--color-light-gray-3);
   padding: 10px 0;
   border-radius: 10px;
-  flex-wrap: wrap;
+}
 
-  flex: 1;
+.CarbonaraTable-Card > .CarbonaraTable-CardContent {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 12;
 }
 
 .CarbonaraTable-ClickableCard {

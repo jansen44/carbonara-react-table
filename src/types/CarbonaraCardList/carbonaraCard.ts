@@ -1,6 +1,8 @@
-import { CarbonaraAction, CarbonaraGroupedData } from '../misc'
+import { CarbonaraAction, CarbonaraGroupedData, CarbonaraTableAction } from '../misc'
 
 export type CarbonaraCardProps = {
   card: CarbonaraGroupedData,
-  onCardClick?: CarbonaraAction
+  onCardClick?: CarbonaraAction,
+  actions?: CarbonaraTableAction[],
+  loading?: boolean
 }

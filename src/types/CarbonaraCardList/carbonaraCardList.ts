@@ -3,5 +3,6 @@ import { CarbonaraAction, CarbonaraGroupedData, CarbonaraTableAction } from '../
 export type CarbonaraCardListProps = {
   cards: CarbonaraGroupedData[],
   onCardClick?: CarbonaraAction,
-  actions?: CarbonaraTableAction[]
+  actions?: CarbonaraTableAction[],
+  loading?: boolean
 }

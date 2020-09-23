@@ -126,7 +126,8 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       shimmerLoadingRowsTotal,
       actions,
       actionsTitle,
-      actionsWidth
+      actionsWidth,
+      onlyCards
     } = this.props
     const { tableRows, tableDimensions } = this.state
 
@@ -139,8 +140,13 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       return <div>No Data Available</div>
     }
 
-    if (!!showCards && (tableDimensions.width <= maxShowCardsWidth)) {
-      return <CarbonaraCardList cards={tableRows} onCardClick={onRowClick} actions={actions} />
+    if ((!!showCards && (tableDimensions.width <= maxShowCardsWidth)) || onlyCards) {
+      return <CarbonaraCardList
+        cards={tableRows}
+        onCardClick={onRowClick}
+        actions={actions}
+        loading={loading}
+      />
     }
 
     if (!!datagrid) {

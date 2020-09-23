@@ -28,7 +28,8 @@ export type CarbonaraComponentProps = {
   shimmerLoadingRowsTotal?: number,
   actions?: CarbonaraTableAction[],
   actionsTitle?: string,
-  actionsWidth?: string
+  actionsWidth?: string,
+  onlyCards?: boolean
 }
 
 // ? Main CarbonaraComponent state

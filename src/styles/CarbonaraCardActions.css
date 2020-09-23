@@ -1,0 +1,6 @@
+.CarbonaraTable-CardActions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid #eef1f8;
+}
