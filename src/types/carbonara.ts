@@ -29,7 +29,8 @@ export type CarbonaraComponentProps = {
   actions?: CarbonaraTableAction[],
   actionsTitle?: string,
   actionsWidth?: string,
-  onlyCards?: boolean
+  onlyCards?: boolean,
+  onlyColumns?: boolean
 }
 
 // ? Main CarbonaraComponent state

@@ -127,7 +127,8 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
       actions,
       actionsTitle,
       actionsWidth,
-      onlyCards
+      onlyCards,
+      onlyColumns
     } = this.props
     const { tableRows, tableDimensions } = this.state
 
@@ -146,6 +147,7 @@ export class CarbonaraTable extends Component<CarbonaraComponentProps, Carbonara
         onCardClick={onRowClick}
         actions={actions}
         loading={loading}
+        onlyColumns={onlyColumns}
       />
     }
 

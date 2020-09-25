@@ -2,7 +2,7 @@ import React from 'react'
 import { CarbonaraCardListProps } from '../../types'
 import { CarbonaraCard } from './Card'
 
-export const CarbonaraCardList = ({ cards, onCardClick, loading, actions }: CarbonaraCardListProps) => (
+export const CarbonaraCardList = ({ cards, onCardClick, loading, actions, onlyColumns }: CarbonaraCardListProps) => (
   <div className='CarbonaraTable-CardList'>
     {cards.map((card, index) => (
       <CarbonaraCard
@@ -11,6 +11,7 @@ export const CarbonaraCardList = ({ cards, onCardClick, loading, actions }: Carb
         key={`carbonaracard__${card.length}_${index}`}
         loading={loading}
         actions={actions}
+        onlyColumns={onlyColumns}
       />
     ))}
   </div>

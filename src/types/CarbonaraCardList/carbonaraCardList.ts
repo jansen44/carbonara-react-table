@@ -4,5 +4,6 @@ export type CarbonaraCardListProps = {
   cards: CarbonaraGroupedData[],
   onCardClick?: CarbonaraAction,
   actions?: CarbonaraTableAction[],
-  loading?: boolean
+  loading?: boolean,
+  onlyColumns?: boolean
 }
