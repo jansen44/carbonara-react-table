@@ -25,6 +25,7 @@ export const CarbonaraTBodyRowAction = ({ actions, actionWidth, rowHeight, row }
         {actions.map((action, index) => (
           <action.Child
             {...action}
+            data={row}
             key={`rowIconButton_${JSON.stringify(action)}_${index}`}
             onClick={() => action.onClick(row)}
           />

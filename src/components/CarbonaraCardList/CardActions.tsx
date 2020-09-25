@@ -6,6 +6,7 @@ export const CarbonaraCardActions = ({ actions, card }: CarbonaraCardActionsProp
         {actions.map((action, index) => (
             <action.Child
                 {...action}
+                data={card}
                 key={`rowIconButton_${JSON.stringify(action)}_${index}`}
                 onClick={() => action.onClick(card)}
             />

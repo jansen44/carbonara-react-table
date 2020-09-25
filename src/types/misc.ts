@@ -11,6 +11,7 @@ export type CarbonaraTableAction = {
 }
 
 export type CarbonaraTableActionChildProps = {
+  data?: any,
   className?: string,
   onClick: (row: CarbonaraGroupedData) => void
 }
